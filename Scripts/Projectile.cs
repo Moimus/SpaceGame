@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int speed = 30;
-    //public Transform owner; //TODO
-    //float ownerSpeed;
-    //float relativeSpeed;
+    public float speed = 30f;
+    public Transform owner; //TODO
+    Ship ownerShip;
 
     // Start is called before the first frame update
     void Start()
     {
+        init();
         Destroy(gameObject, 2f);
     }
 
@@ -24,13 +24,18 @@ public class Projectile : MonoBehaviour
     //TODO
     protected virtual void init()
     {
-        
+        ownerShip = owner.GetComponent<Ship>();
+        speed += ownerShip.speedCurrent;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
-        Destroy(gameObject);
+        if(other.transform != owner)
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+
     }
 
 

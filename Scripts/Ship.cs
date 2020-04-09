@@ -22,6 +22,9 @@ public class Ship : MonoBehaviour
 
     public float yawSensitivity = 0.5f;
 
+    //Sheet
+    //TODO
+
     //FX
     public GameObject trail;
     public float trailSpeed = 1; //used by autotrail to determine at which speed the trail appears & dissappears
@@ -140,6 +143,7 @@ public class Ship : MonoBehaviour
     public void fire()
     {
         GameObject p = Instantiate(projectile);
+        p.GetComponent<Projectile>().owner = gameObject.transform;
         p.transform.position = bulletSpawner.transform.position;
         p.transform.rotation = bulletSpawner.transform.rotation;
     }
