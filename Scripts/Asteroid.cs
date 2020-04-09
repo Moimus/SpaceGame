@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour, IHitable
+public class Asteroid : MonoBehaviour, IHitable, IDestructable
 {
+    public GameObject explosionFx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,13 @@ public class Asteroid : MonoBehaviour, IHitable
 
     public void onHit()
     {
+        onDestroy();
+    }
+
+    public void onDestroy()
+    {
+        GameObject explosion = Instantiate(explosionFx, transform.position, transform.rotation);
         Destroy(gameObject);
     }
+
 }

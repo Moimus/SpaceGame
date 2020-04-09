@@ -106,3 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff9c39514e4a014691e4af1aa81ab19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionFx: {fileID: 8438263367070403207, guid: 01b80a19eb24be646ad08e423cfda189,
+    type: 3}
