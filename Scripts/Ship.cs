@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour
+public class Ship : MonoBehaviour, IHitable
 {
     //Weapons
     public GameObject bulletSpawner;
@@ -173,5 +173,24 @@ public class Ship : MonoBehaviour
     public void hideTrail()
     {
         trail.SetActive(false);
+    }
+
+    public void onHit()
+    {
+        Debug.Log("Hit!");
+    }
+
+    //This is what happens when the ship crashes into something, called by OnCollisionEnter, this is a seperate method so you can override it in child classes for a different behaviour
+    protected virtual void handleCollision()
+    {
+        if(speedCurrent > 2)
+        {
+            speedCurrent = 0;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        handleCollision();
     }
 }

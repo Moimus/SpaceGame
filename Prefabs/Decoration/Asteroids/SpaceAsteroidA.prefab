@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2462749782015295504}
   - component: {fileID: 8147566479651028201}
   - component: {fileID: 4284907478738483116}
+  - component: {fileID: 5166580125790071324}
   m_Layer: 0
   m_Name: SpaceAsteroidA
   m_TagString: Untagged
@@ -93,3 +94,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.8174052
   m_Center: {x: -0.0004746318, y: 0.0071542263, z: 0.021959245}
+--- !u!114 &5166580125790071324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7578764905808431157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff9c39514e4a014691e4af1aa81ab19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

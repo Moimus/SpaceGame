@@ -32,10 +32,12 @@ public class Projectile : MonoBehaviour
     {
         if(other.transform != owner)
         {
-            Destroy(other.gameObject);
+            if(other.GetComponent<IHitable>() != null)
+            {
+                other.GetComponent<IHitable>().onHit();
+            }
             Destroy(gameObject);
         }
-
     }
 
 
