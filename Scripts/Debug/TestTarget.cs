@@ -21,6 +21,7 @@ public class TestTarget : MonoBehaviour, IHitable, IDestructable
     public void onDestroy()
     {
         GameObject explosion = Instantiate(explosionFx, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 
     public void onHit()
