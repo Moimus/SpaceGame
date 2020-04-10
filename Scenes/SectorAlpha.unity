@@ -9211,6 +9211,7 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
+  m_CameraOutput: 0
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
@@ -9222,7 +9223,6 @@ MonoBehaviour:
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
-  m_ClearDepth: 1
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -16806,7 +16806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1233518608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16832,6 +16832,13 @@ MonoBehaviour:
   rollDeceleration: 200
   yawSensitivity: 0.3
   yawSpeed: 600
+  hpMax: 10
+  hpCurrent: 0
+  energyMax: 100
+  energyCurrent: 0
+  energyRechargeRate: 1
+  fuelMax: 100
+  fuelCurrent: 0
   trail: {fileID: 2134287509}
   trailSpeed: 1
   scanPrefab: {fileID: 4520328146637680205, guid: f259b5619ec18384e8158f3139f020d8,
@@ -18396,7 +18403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1632243450
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18464,6 +18471,13 @@ MonoBehaviour:
   rollDeceleration: 200
   yawSensitivity: 0.3
   yawSpeed: 100
+  hpMax: 10
+  hpCurrent: 0
+  energyMax: 100
+  energyCurrent: 0
+  energyRechargeRate: 1
+  fuelMax: 100
+  fuelCurrent: 0
   trail: {fileID: 1035355680}
   trailSpeed: 1
   scanPrefab: {fileID: 4520328146637680205, guid: f259b5619ec18384e8158f3139f020d8,
@@ -20791,6 +20805,7 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
+  m_CameraOutput: 0
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
@@ -20802,7 +20817,6 @@ MonoBehaviour:
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
-  m_ClearDepth: 1
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2

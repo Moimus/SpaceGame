@@ -24,7 +24,13 @@ public class Ship : MonoBehaviour, IHitable
     public float yawSpeed = 200; //Controller only
 
     //Sheet
-    //TODO
+    public int hpMax = 10;
+    public int hpCurrent;
+    public float energyMax = 100f;
+    public float energyCurrent;
+    public float energyRechargeRate = 1f;
+    public float fuelMax = 100;
+    public float fuelCurrent;
 
     //FX
     public GameObject trail;
@@ -36,7 +42,10 @@ public class Ship : MonoBehaviour, IHitable
     // Start is called before the first frame update
     void Start()
     {
-        
+        hpCurrent = hpMax;
+        energyCurrent = energyMax;
+        fuelCurrent = fuelMax;
+
     }
 
     // Update is called once per frame
@@ -59,6 +68,8 @@ public class Ship : MonoBehaviour, IHitable
 
         roll();
         autoTrail();
+
+        rechargeEnergy();
     }
 
     public void lookAtMouse()
@@ -144,15 +155,28 @@ public class Ship : MonoBehaviour, IHitable
     //TODO
     public void fire()
     {
-        GameObject p = Instantiate(projectile);
-        p.GetComponent<Projectile>().owner = gameObject.transform;
-        p.transform.position = bulletSpawner.transform.position;
-        p.transform.rotation = bulletSpawner.transform.rotation;
+        if (energyCurrent > 0)
+        {
+            GameObject p = Instantiate(projectile);
+            p.GetComponent<Projectile>().owner = gameObject.transform;
+            p.transform.position = bulletSpawner.transform.position;
+            p.transform.rotation = bulletSpawner.transform.rotation;
+            energyCurrent -= 10f;
+        }
+    
     }
 
     public void scan()
     {
         GameObject scan = Instantiate(scanPrefab, transform.position, transform.rotation, transform);
+    }
+
+    protected void rechargeEnergy()
+    {
+        if (energyCurrent < energyMax)
+        {
+            energyCurrent += energyRechargeRate * Time.deltaTime;
+        }
     }
 
     //automatically toggles the ships trail
