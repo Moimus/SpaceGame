@@ -35,6 +35,7 @@ public class Ship : MonoBehaviour, IHitable
     //FX
     public GameObject trail;
     public float trailSpeed = 1; //used by autotrail to determine at which speed the trail appears & dissappears
+    public Camera mainCamera;
 
     //Scanner
     public GameObject scanPrefab;
@@ -219,6 +220,11 @@ public class Ship : MonoBehaviour, IHitable
     private void OnCollisionEnter(Collision collision)
     {
         handleCollision();
+    }
+    
+    public void setFOV(int amount)
+    {
+        mainCamera.fieldOfView = amount;
     }
 
     //Gamepad related functions

@@ -56,6 +56,15 @@ public class PlayerControllerKeyboard : MonoBehaviour
         {
             ship.toggleCruiseMode();
         }
+
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            ship.setFOV(60);
+        }
+        else if(Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            ship.setFOV(170);
+        }
     }
 
     void checkMouseInput()
