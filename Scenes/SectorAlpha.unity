@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -16806,7 +16806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1233518608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16836,7 +16836,7 @@ MonoBehaviour:
   hpCurrent: 0
   energyMax: 100
   energyCurrent: 0
-  energyRechargeRate: 1
+  energyRechargeRate: 20
   fuelMax: 100
   fuelCurrent: 0
   trail: {fileID: 2134287509}
@@ -17701,7 +17701,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5006512736520271852}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!64 &1443145798
 MeshCollider:
@@ -17715,7 +17715,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
-  m_CookingOptions: -1
+  m_CookingOptions: 4
   m_Mesh: {fileID: -1196632888549912729, guid: cbe52e9bc53c37641803c2465a73641e, type: 3}
 --- !u!1001 &1452872055
 PrefabInstance:
@@ -18404,7 +18404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &1632243450
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18476,7 +18476,7 @@ MonoBehaviour:
   hpCurrent: 0
   energyMax: 100
   energyCurrent: 0
-  energyRechargeRate: 1
+  energyRechargeRate: 20
   fuelMax: 100
   fuelCurrent: 0
   trail: {fileID: 1035355680}
@@ -22232,12 +22232,12 @@ Transform:
   m_LocalPosition: {x: -14.2, y: 11.27, z: 52.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1443145797}
   - {fileID: 8824672178829969975}
   - {fileID: 5574657383226519887}
   - {fileID: 6105189305059844570}
   - {fileID: 7803107193538575946}
   - {fileID: 6333566437764492327}
+  - {fileID: 1443145797}
   - {fileID: 1846652692}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -22349,7 +22349,7 @@ Transform:
   - {fileID: 8593088156546608094}
   - {fileID: 754915745244980363}
   m_Father: {fileID: 5006512736520271852}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5580695646006793385
 Transform:
@@ -22380,7 +22380,7 @@ Transform:
   - {fileID: 150464951370350578}
   - {fileID: 5530047869174790912}
   m_Father: {fileID: 5006512736520271852}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6110493879562295891
 GameObject:
@@ -22473,7 +22473,7 @@ Transform:
   - {fileID: 2874917382790929064}
   - {fileID: 5580695646006793385}
   m_Father: {fileID: 5006512736520271852}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6442144886140011087
 MeshRenderer:
@@ -22773,7 +22773,7 @@ Transform:
   - {fileID: 8918261680207211065}
   - {fileID: 581330773683947609}
   m_Father: {fileID: 5006512736520271852}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &7931198507402922381
 MeshRenderer:
@@ -22995,7 +22995,7 @@ Transform:
   - {fileID: 8026864652667515210}
   - {fileID: 4658488909089399743}
   m_Father: {fileID: 5006512736520271852}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &8908810730471247278
 MeshRenderer:
