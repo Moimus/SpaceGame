@@ -20,63 +20,89 @@ public class PlayerControllerGamepad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        checkInput();
+        StartCoroutine(checkInput());
+        ship.stateLoop();
     }
 
-    void checkInput()
+    IEnumerator checkInput()
     {
         //Left stick controls
-        if(Input.GetAxis("P1LeftStickHorizontal") != 0)
+        if (Input.GetAxis("P1LeftStickHorizontal") < -0.4f)
         {
-            //Debug.Log("Left stick Horizontal Axis: " + Input.GetAxis("P1LeftStickHorizontal"));
+            ship.yawLeft(-Input.GetAxis("P1LeftStickHorizontal"));
+        }
+        else if (Input.GetAxis("P1LeftStickHorizontal") > 0.4f)
+        {
+            ship.yawRight(Input.GetAxis("P1LeftStickHorizontal"));
         }
 
-        if (Input.GetAxis("P1LeftStickVertical") != 0)
+        if (Input.GetAxis("P1LeftStickVertical") > 0.4f)
         {
-            //Debug.Log("Left stick Vertical Axis: " + Input.GetAxis("P1LeftStickVertical"));
+            ship.yawDown(Input.GetAxis("P1LeftStickVertical"));
+        }
+        else if (Input.GetAxis("P1LeftStickVertical") < -0.4f)
+        {
+            ship.yawUp(-Input.GetAxis("P1LeftStickVertical"));
         }
 
         //Right stick controls
-        if (Input.GetAxis("P1RightStickHorizontal") != 0)
+        if (Input.GetAxis("P1RightStickHorizontal") < -0.8f)
+        {
+            //Debug.Log("right stick Horizontal Axis: " + Input.GetAxis("P1RightStickHorizontal"));
+        }
+        else if (Input.GetAxis("P1RightStickHorizontal") > 0.8f)
         {
             //Debug.Log("right stick Horizontal Axis: " + Input.GetAxis("P1RightStickHorizontal"));
         }
 
-        if (Input.GetAxis("P1RightStickVertical") != 0)
+        if (Input.GetAxis("P1RightStickVertical") > 0.8f)
+        {
+            //Debug.Log("right stick Vertical Axis: " + Input.GetAxis("P1RightStickVertical"));
+        }
+        else if (Input.GetAxis("P1RightStickVertical") < -0.8f)
         {
             //Debug.Log("right stick Vertical Axis: " + Input.GetAxis("P1RightStickVertical"));
         }
 
         //Trigger controls
-        if (Input.GetAxis("P1LeftTrigger") != 0)
+        if (Input.GetAxis("P1LeftTrigger") == 1)
         {
-            Debug.Log("left trigger Axis: " + Input.GetAxis("P1LeftTrigger"));
+            //Debug.Log("left trigger Axis: " + Input.GetAxis("P1LeftTrigger"));
+            ship.rollLeft();
         }
-
-        if (Input.GetAxis("P1RightTrigger") != 0)
+        else if (Input.GetAxis("P1RightTrigger") == 1)
         {
-            Debug.Log("right trigger Axis: " + Input.GetAxis("P1RightTrigger"));
+            //Debug.Log("right trigger Axis: " + Input.GetAxis("P1RightTrigger"));
+            ship.rollRight();
+        }
+        else
+        {
+            ship.rollIdle();
         }
 
         //Button controls
-        if (Input.GetButtonDown("P1Abutton"))
+        if (Input.GetButton("P1Abutton"))
         {
-            Debug.Log("A-Button down");
+            //Debug.Log("A-Button down");
+            ship.speedUp();
+        }
+        else if (Input.GetButton("P1Bbutton"))
+        {
+            //Debug.Log("B-Button down");
+            ship.slowDown();
         }
 
         if (Input.GetButtonDown("P1Xbutton"))
         {
-            Debug.Log("X-Button down");
-        }
-
-        if (Input.GetButtonDown("P1Bbutton"))
-        {
-            Debug.Log("B-Button down");
+            //Debug.Log("X-Button down");
+            ship.fire();
         }
 
         if (Input.GetButtonDown("P1Ybutton"))
         {
-            Debug.Log("Y-Button down");
+            //Debug.Log("Y-Button down");
         }
+
+        yield return null;
     }
 }

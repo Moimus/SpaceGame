@@ -21,6 +21,7 @@ public class Ship : MonoBehaviour, IHitable
     public float rollDeceleration = 400f; //rate of deceleration
 
     public float yawSensitivity = 0.5f;
+    public float yawSpeed = 200; //Controller only
 
     //Sheet
     //TODO
@@ -140,6 +141,7 @@ public class Ship : MonoBehaviour, IHitable
         }
     }
 
+    //TODO
     public void fire()
     {
         GameObject p = Instantiate(projectile);
@@ -153,6 +155,7 @@ public class Ship : MonoBehaviour, IHitable
         GameObject scan = Instantiate(scanPrefab, transform.position, transform.rotation, transform);
     }
 
+    //automatically toggles the ships trail
     protected void autoTrail()
     {
         if(speedCurrent > trailSpeed && !trail.activeInHierarchy)
@@ -192,5 +195,26 @@ public class Ship : MonoBehaviour, IHitable
     private void OnCollisionEnter(Collision collision)
     {
         handleCollision();
+    }
+
+    //Gamepad related functions
+    public void yawDown(float factor)
+    {
+        transform.Rotate(Vector3.right, yawSpeed * factor * yawSensitivity * Time.deltaTime);
+    }
+
+    public void yawUp(float factor)
+    {
+        transform.Rotate(-Vector3.right, yawSpeed * factor * yawSensitivity * Time.deltaTime);
+    }
+
+    public void yawLeft(float factor)
+    {
+        transform.Rotate(-Vector3.up, yawSpeed * factor * yawSensitivity * Time.deltaTime);
+    }
+
+    public void yawRight(float factor)
+    {
+        transform.Rotate(Vector3.up, yawSpeed * factor * yawSensitivity * Time.deltaTime);
     }
 }

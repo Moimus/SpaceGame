@@ -16831,6 +16831,7 @@ MonoBehaviour:
   rollAcceleration: 200
   rollDeceleration: 200
   yawSensitivity: 0.3
+  yawSpeed: 600
   trail: {fileID: 2134287509}
   trailSpeed: 1
   scanPrefab: {fileID: 4520328146637680205, guid: f259b5619ec18384e8158f3139f020d8,
@@ -18437,7 +18438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1ec97847d9393408d5a4e7dad82138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 0}
+  ship: {fileID: 1632243453}
 --- !u!114 &1632243453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18462,6 +18463,7 @@ MonoBehaviour:
   rollAcceleration: 200
   rollDeceleration: 200
   yawSensitivity: 0.3
+  yawSpeed: 100
   trail: {fileID: 1035355680}
   trailSpeed: 1
   scanPrefab: {fileID: 4520328146637680205, guid: f259b5619ec18384e8158f3139f020d8,
