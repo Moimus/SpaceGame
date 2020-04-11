@@ -29,4 +29,8 @@ public class Asteroid : MonoBehaviour, IHitable, IDestructable
         Destroy(gameObject);
     }
 
+    public void onHit(int damage)
+    {
+        throw new System.NotImplementedException();
+    }
 }

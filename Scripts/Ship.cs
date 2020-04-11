@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour, IHitable
+public class Ship : MonoBehaviour, IHitable, IDestructable
 {
+    [Header("Weapons")]
     //Weapons
     public GameObject bulletSpawner;
     public GameObject projectile;
 
+    [Header("ControlVariables")]
     //ControlVariables
     public float speedCurrent = 0f;
     public float speedMax = 3f;
@@ -23,19 +25,23 @@ public class Ship : MonoBehaviour, IHitable
     public float yawSensitivity = 0.5f;
     public float yawSpeed = 200; //Controller only
 
+    [Header("Sheet")]
     //Sheet
     public int hpMax = 10;
     public int hpCurrent;
     public float energyMax = 100f;
     public float energyCurrent;
-    public float energyRechargeRate = 1f;
+    public float energyRechargeRate = 10.0f; //how much energy is recharged per second
     public float fuelMax = 100;
     public float fuelCurrent;
 
+    [Header("FX")]
     //FX
     public GameObject trail;
     public float trailSpeed = 1; //used by autotrail to determine at which speed the trail appears & dissappears
     public Camera mainCamera;
+    public float deathDelay = 2.0f; //how long the ship is alive after onDestroy() is called
+    public GameObject explosionFx;
 
     //Scanner
     public GameObject scanPrefab;
@@ -203,9 +209,37 @@ public class Ship : MonoBehaviour, IHitable
         trail.SetActive(false);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        handleCollision();
+    }
+
+    public void onHit(int damage)
+    {
+        hpCurrent -= damage;
+        checkAlive();
+    }
+
     public void onHit()
     {
         Debug.Log("Hit!");
+    }
+
+    //called by onhit(...), checks if the player has more than 0 HP and destroys the player otherwise(calls IDestructable.onDestroy())
+    protected void checkAlive()
+    {
+        if(hpCurrent <= 0)
+        {
+            onDestroy();
+        }
+    }
+
+    public void onDestroy()
+    {
+        mainCamera.transform.parent = null; // decouples the camera from the player ship so it won't get destroyed
+
+        GameObject explosion = Instantiate(explosionFx, transform.position, transform.rotation); //spawn an explosion
+        Destroy(gameObject, deathDelay); //Destroy the ship object
     }
 
     //This is what happens when the ship crashes into something, called by OnCollisionEnter, this is a seperate method so you can override it in child classes for a different behaviour
@@ -213,15 +247,13 @@ public class Ship : MonoBehaviour, IHitable
     {
         if(speedCurrent > 2)
         {
+            int crashDamage = (int)speedCurrent * 2;
             speedCurrent = 0;
+            onHit(crashDamage);
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        handleCollision();
-    }
     
+    //fun method for changing the field-of-view, maybe use this for a hyperdrive effect later
     public void setFOV(int amount)
     {
         mainCamera.fieldOfView = amount;

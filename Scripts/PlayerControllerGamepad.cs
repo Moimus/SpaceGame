@@ -101,6 +101,7 @@ public class PlayerControllerGamepad : MonoBehaviour
         if (Input.GetButtonDown("P1Ybutton"))
         {
             //Debug.Log("Y-Button down");
+            ship.scan();
         }
 
         yield return null;

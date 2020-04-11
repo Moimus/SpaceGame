@@ -28,4 +28,9 @@ public class TestTarget : MonoBehaviour, IHitable, IDestructable
     {
         onDestroy();
     }
+
+    public void onHit(int damage)
+    {
+        throw new System.NotImplementedException();
+    }
 }
