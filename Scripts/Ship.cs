@@ -166,7 +166,10 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     
     public void fireWeapon()
     {
-        weapon.fire();
+        if (weapon != null)
+        {
+                weapon.fire();
+        }
     }
     
     public void scan()
