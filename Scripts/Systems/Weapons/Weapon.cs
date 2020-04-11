@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public ship ship;
+    public Ship ship;
     public GameObject bulletSpawner;
     public GameObject projectile;
 

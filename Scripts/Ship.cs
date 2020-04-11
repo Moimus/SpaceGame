@@ -6,8 +6,11 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 {
     [Header("Weapons")]
     //Weapons
+    public Weapon weapon;
+    /*
     public GameObject bulletSpawner;
     public GameObject projectile;
+    */
 
     [Header("ControlVariables")]
     //ControlVariables
@@ -160,19 +163,12 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     }
 
     //TODO
-    public void fire()
-    {
-        if (energyCurrent > 0)
-        {
-            GameObject p = Instantiate(projectile);
-            p.GetComponent<Projectile>().owner = gameObject.transform;
-            p.transform.position = bulletSpawner.transform.position;
-            p.transform.rotation = bulletSpawner.transform.rotation;
-            energyCurrent -= 10f;
-        }
     
+    public void fireWeapon()
+    {
+        weapon.fire();
     }
-
+    
     public void scan()
     {
         GameObject scan = Instantiate(scanPrefab, transform.position, transform.rotation, transform);

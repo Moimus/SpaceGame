@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerControllerKeyboard : MonoBehaviour
 {
-    public ship ship;
+    public Ship ship;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +71,7 @@ public class PlayerControllerKeyboard : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ship.fire();
+            ship.fireWeapon();
         }
 
         if (Input.GetMouseButton(1))
