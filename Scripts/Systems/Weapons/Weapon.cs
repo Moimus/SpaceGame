@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Ship ship;
+    public ship ship;
+    public GameObject bulletSpawner;
+    public GameObject projectile;
 
     // Start is called before the first frame update
     void Start()
@@ -19,14 +21,11 @@ public class Weapon : MonoBehaviour
     }
     public void fire()
     {
-   
-            GameObject p = Instantiate(projectile);
-            p.GetComponent<Projectile>().owner = gameObject.transform;
-            p.transform.position = bulletSpawner.transform.position;
-            p.transform.rotation. = bulletSpawner.transform.rotation;
-            energyCurrent -= 10f;
-        
-
+        GameObject p = Instantiate(projectile);
+        p.GetComponent<Projectile>().owner = gameObject.transform;
+        p.transform.position = bulletSpawner.transform.position;
+        p.transform.rotation = bulletSpawner.transform.rotation;
+        ship.energyCurrent -= 10f;
     }
-
+    
 }

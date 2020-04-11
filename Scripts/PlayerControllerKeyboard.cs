@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerControllerKeyboard : MonoBehaviour
 {
-    public Ship ship;
+    public ship ship;
 
     // Start is called before the first frame update
     void Start()
