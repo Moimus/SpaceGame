@@ -95,7 +95,7 @@ public class PlayerControllerGamepad : MonoBehaviour
         if (Input.GetButtonDown("P1Xbutton"))
         {
             //Debug.Log("X-Button down");
-            ship.fire();
+            ship.fireWeapon();
         }
 
         if (Input.GetButtonDown("P1Ybutton"))
