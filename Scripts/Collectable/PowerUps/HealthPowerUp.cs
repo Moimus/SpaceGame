@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPowerUp : MonoBehaviour, ICollectable
+public class HealthPowerUp : MonoBehaviour, ICollectable, IDestructable
 {
     public int healAmount = 2;
+    public GameObject explosionFx;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,13 @@ public class HealthPowerUp : MonoBehaviour, ICollectable
             {
                 collector.hpCurrent = collector.hpMax;
             }
-            Destroy(gameObject);
+            onDestroy();
         }
+    }
+
+    public void onDestroy()
+    {
+        GameObject explosion = Instantiate(explosionFx, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
