@@ -168,7 +168,7 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     {
         if (weapon != null)
         {
-                weapon.fire();
+            weapon.fire();
         }
     }
     
