@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 30f;
     public Transform owner; //TODO
+    public int damage = 1;
     Ship ownerShip;
 
     // Start is called before the first frame update
@@ -35,6 +36,10 @@ public class Projectile : MonoBehaviour
             if(other.GetComponent<IHitable>() != null)
             {
                 other.GetComponent<IHitable>().onHit();
+                if(other.GetComponent<Ship>() != null)
+                {
+                    other.GetComponent<Ship>().onHit(damage);
+                }
             }
             Destroy(gameObject);
         }

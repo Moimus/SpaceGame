@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface ICollectable
+
 {
-    void onCollect();
+    void onCollect(Ship collector);
 }
