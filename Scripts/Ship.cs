@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour, IHitable, IDestructable
 {
+    [Header("UI")]
+    public bool hasUI = false;
+    public PlayerUI ui;
+
     [Header("Weapons")]
     //Weapons
     public Weapon weapon;
@@ -61,7 +65,7 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void stateLoop()
@@ -78,8 +82,8 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
         roll();
         autoTrail();
-
         rechargeEnergy();
+        updateUI();
     }
 
     public void lookAtMouse()
@@ -161,8 +165,6 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
         }
     }
-
-    //TODO
     
     public void fireWeapon()
     {
@@ -277,5 +279,16 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     public void yawRight(float factor)
     {
         transform.Rotate(Vector3.up, yawSpeed * factor * yawSensitivity * Time.deltaTime);
+    }
+
+    //UI functions
+    public void updateUI()
+    {
+        if(hasUI)
+        {
+            ui.setHullCounter(hpCurrent);
+            ui.setSpeedCounter((int)speedCurrent);
+            ui.setEnergyCounter((int)energyCurrent);
+        }
     }
 }
