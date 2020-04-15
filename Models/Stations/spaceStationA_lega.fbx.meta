@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 93e8fe5909feb4e47a7d40fb40e4df2f
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -4840181219802281099
+    second: RingA|RingAAction
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -80,7 +83,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.099999994
+    globalScale: 10
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
