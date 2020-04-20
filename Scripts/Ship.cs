@@ -23,6 +23,8 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     public float acceleration = 1f;
     public float deceleration = 1f;
     bool cruiseMode = false;
+    int screenWidth = Screen.width / 2;
+    int screenHeight = Screen.height / 2;
 
     public float rollSpeedMax = 100; //Maximum roll speed
     public float rollSpeedCurrent = 0f; //current roll speed
@@ -67,8 +69,6 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Input.mousePosition.x);
-        Debug.Log(Input.mousePosition.y);
 
     }
 
@@ -92,9 +92,9 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
     public void lookAtMouse()
     {
-        float fx = Math.cubed((Input.mousePosition.x - 1000f) / (90));
+        float fx = Math.cubed((Input.mousePosition.x - screenWidth) / (90));
         transform.Rotate(Vector3.up, fx * yawSensitivity * Time.deltaTime);
-        float fy = Math.cubed(-(Input.mousePosition.y - 600f) / (90));
+        float fy = Math.cubed(-(Input.mousePosition.y - screenHeight) / (90));
         transform.Rotate(Vector3.right, fy * yawSensitivity * Time.deltaTime);
     }
 
