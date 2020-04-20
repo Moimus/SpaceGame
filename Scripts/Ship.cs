@@ -59,6 +59,9 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         hpCurrent = hpMax;
         energyCurrent = energyMax;
         fuelCurrent = fuelMax;
+        Debug.Log(Screen.width);
+        Debug.Log(Screen.height);
+
 
     }
 
