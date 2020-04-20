@@ -61,13 +61,14 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         fuelCurrent = fuelMax;
         Debug.Log(Screen.width);
         Debug.Log(Screen.height);
-
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Input.mousePosition.x);
+        Debug.Log(Input.mousePosition.y);
 
     }
 
