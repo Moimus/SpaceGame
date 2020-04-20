@@ -23,8 +23,9 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     public float acceleration = 1f;
     public float deceleration = 1f;
     bool cruiseMode = false;
-    int screenWidth = Screen.width / 2;
-    int screenHeight = Screen.height / 2;
+    int screenWidthHalf = Screen.width / 2;
+    int screenHeightHalf = Screen.height / 2;
+    int displayAspectRatio;
 
     public float rollSpeedMax = 100; //Maximum roll speed
     public float rollSpeedCurrent = 0f; //current roll speed
@@ -58,12 +59,13 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     // Start is called before the first frame update
     void Start()
     {
+        calcAspectRatio();
         hpCurrent = hpMax;
         energyCurrent = energyMax;
         fuelCurrent = fuelMax;
         Debug.Log(Screen.width);
         Debug.Log(Screen.height);
-        
+
     }
 
     // Update is called once per frame
@@ -79,7 +81,7 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
             moveForward();
         }
 
-        if(cruiseMode)
+        if (cruiseMode)
         {
             speedUp();
         }
@@ -89,12 +91,15 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         rechargeEnergy();
         updateUI();
     }
-
+    public void calcAspectRatio()
+    {
+        displayAspectRatio = (int)mainCamera.aspect * Screen.width / Screen.height;
+    }
     public void lookAtMouse()
     {
-        float fx = Math.cubed((Input.mousePosition.x - screenWidth) / (90));
+        float fx = Math.cubed((Input.mousePosition.x - screenWidthHalf) / (90));
         transform.Rotate(Vector3.up, fx * yawSensitivity * Time.deltaTime);
-        float fy = Math.cubed(-(Input.mousePosition.y - screenHeight) / (90));
+        float fy = Math.cubed(-(Input.mousePosition.y - screenHeightHalf) / (90)) * displayAspectRatio;
         transform.Rotate(Vector3.right, fy * yawSensitivity * Time.deltaTime);
     }
 
