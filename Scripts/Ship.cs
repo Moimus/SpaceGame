@@ -23,9 +23,6 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     public float acceleration = 1f;
     public float deceleration = 1f;
     bool cruiseMode = false;
-    int screenWidthHalf = Screen.width / 2;
-    int screenHeightHalf = Screen.height / 2;
-    int displayAspectRatio;
 
     public float rollSpeedMax = 100; //Maximum roll speed
     public float rollSpeedCurrent = 0f; //current roll speed
@@ -34,6 +31,14 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
     public float yawSensitivity = 0.5f;
     public float yawSpeed = 200; //Controller only
+
+    int screenWidthHalf = Screen.width / 2;  //TODO move this to KeyboardController
+    int screenHeightHalf = Screen.height / 2; //TODO move this to KeyboardController
+    int deadZoneXPositive; //TODO move this to KeyboardController
+    int deadZoneXNegative; //TODO move this to KeyboardController
+    int deadZoneYPositive; //TODO move this to KeyboardController
+    int deadZoneYNegative; //TODO move this to KeyboardController
+    int displayAspectRatio; //TODO move this to KeyboardController
 
     [Header("Sheet")]
     //Sheet
@@ -60,18 +65,21 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     void Start()
     {
         calcAspectRatio();
+        calcDeadZones();
         hpCurrent = hpMax;
         energyCurrent = energyMax;
         fuelCurrent = fuelMax;
-        Debug.Log(Screen.width);
-        Debug.Log(Screen.height);
 
+        //Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
+        //Debug.Log(Screen.width);
+        //Debug.Log(Screen.height);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        // Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
+        //Debug.Log(Input.mousePosition.x + "//" + Input.mousePosition.y);
     }
 
     public void stateLoop()
@@ -91,16 +99,62 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         rechargeEnergy();
         updateUI();
     }
-    public void calcAspectRatio()
+
+    void calcAspectRatio()
     {
         displayAspectRatio = (int)mainCamera.aspect * Screen.width / Screen.height;
     }
+
+    //TODO move this to KeyboardController
+    void calcDeadZones()
+    {
+        deadZoneXPositive = screenWidthHalf + screenWidthHalf / 4;
+        deadZoneXNegative = screenWidthHalf - screenWidthHalf / 4;
+        deadZoneYPositive = screenHeightHalf + screenHeightHalf / 4;
+        deadZoneYNegative = screenHeightHalf - screenHeightHalf / 4;
+    }
+
+    [System.ObsoleteAttribute("This method is obsolete. Call followMouse() instead.", true)]
     public void lookAtMouse()
     {
         float fx = Math.cubed((Input.mousePosition.x - screenWidthHalf) / (90));
         transform.Rotate(Vector3.up, fx * yawSensitivity * Time.deltaTime);
-        float fy = Math.cubed(-(Input.mousePosition.y - screenHeightHalf) / (90)) * displayAspectRatio;
+        float fy = Math.cubed(-(Input.mousePosition.y - screenHeightHalf) / (90)) + displayAspectRatio;
         transform.Rotate(Vector3.right, fy * yawSensitivity * Time.deltaTime);
+    }
+
+    //TODO move this to KeyboardController
+    public void followMouse()
+    {
+        if(Input.mousePosition.x < deadZoneXNegative)
+        {
+            float mouseMidDistance = screenWidthHalf - Input.mousePosition.x;
+            float smoothFactor = mouseMidDistance / screenWidthHalf;
+            //Debug.Log(smoothFactor + "= " + mouseMidDistance + "/" + screenWidthHalf);
+            yawLeft(smoothFactor);
+        }
+        else if(Input.mousePosition.x > deadZoneXPositive)
+        {
+            float mouseMidDistance = screenWidthHalf - Input.mousePosition.x;
+            float smoothFactor = mouseMidDistance / screenWidthHalf;
+            //Debug.Log(-smoothFactor + "= " + mouseMidDistance + "/" + screenWidthHalf);
+            yawRight(-smoothFactor);
+        }
+
+        if(Input.mousePosition.y < deadZoneYNegative)
+        {
+            float mouseMidDistance = screenHeightHalf - Input.mousePosition.y;
+            float smoothFactor = mouseMidDistance / screenHeightHalf;
+            //Debug.Log(smoothFactor + "= " + mouseMidDistance + "/" + screenWidthHalf);
+            yawDown(smoothFactor);
+        }
+        else if(Input.mousePosition.y > deadZoneYPositive)
+        {
+            float mouseMidDistance = screenHeightHalf - Input.mousePosition.y;
+            float smoothFactor = mouseMidDistance / screenHeightHalf;
+            //Debug.Log(-smoothFactor + "= " + mouseMidDistance + "/" + screenWidthHalf);
+            yawUp(-smoothFactor);
+        }
     }
 
     public void moveForward()

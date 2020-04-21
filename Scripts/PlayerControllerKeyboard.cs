@@ -76,7 +76,7 @@ public class PlayerControllerKeyboard : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            ship.lookAtMouse();
+            ship.followMouse();
         }
     }
 
