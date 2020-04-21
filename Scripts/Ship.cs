@@ -23,9 +23,6 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     public float acceleration = 1f;
     public float deceleration = 1f;
     bool cruiseMode = false;
-    int screenWidthHalf = Screen.width / 2;
-    int screenHeightHalf = Screen.height / 2;
-    int displayAspectRatio;
 
     public float rollSpeedMax = 100; //Maximum roll speed
     public float rollSpeedCurrent = 0f; //current roll speed
@@ -34,6 +31,14 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
     public float yawSensitivity = 0.5f;
     public float yawSpeed = 200; //Controller only
+
+    int screenWidthHalf = Screen.width / 2;
+    int screenHeightHalf = Screen.height / 2;
+    int deadZoneXPositive;
+    int deadZoneXNegative;
+    int deadZoneYPositive;
+    int deadZoneYNegative;
+    int displayAspectRatio;
 
     [Header("Sheet")]
     //Sheet
@@ -60,18 +65,21 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     void Start()
     {
         calcAspectRatio();
+        calcDeadZones();
         hpCurrent = hpMax;
         energyCurrent = energyMax;
         fuelCurrent = fuelMax;
+
+        Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
         Debug.Log(Screen.width);
         Debug.Log(Screen.height);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        // Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
+        Debug.Log(Input.mousePosition.x + "//" + Input.mousePosition.y);
     }
 
     public void stateLoop()
@@ -91,16 +99,49 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         rechargeEnergy();
         updateUI();
     }
-    public void calcAspectRatio()
+
+    void calcAspectRatio()
     {
         displayAspectRatio = (int)mainCamera.aspect * Screen.width / Screen.height;
     }
+
+    void calcDeadZones()
+    {
+        deadZoneXPositive = screenWidthHalf + 128;
+        deadZoneXNegative = screenWidthHalf - 128;
+        deadZoneYPositive = screenHeightHalf + 56;
+        deadZoneYNegative = screenHeightHalf - 56;
+    }
+
+    [System.ObsoleteAttribute("This method is obsolete. Call followMouse() instead.", true)]
     public void lookAtMouse()
     {
         float fx = Math.cubed((Input.mousePosition.x - screenWidthHalf) / (90));
         transform.Rotate(Vector3.up, fx * yawSensitivity * Time.deltaTime);
-        float fy = Math.cubed(-(Input.mousePosition.y - screenHeightHalf) / (90)) * displayAspectRatio;
+        float fy = Math.cubed(-(Input.mousePosition.y - screenHeightHalf) / (90)) + displayAspectRatio;
         transform.Rotate(Vector3.right, fy * yawSensitivity * Time.deltaTime);
+    }
+
+    //TODO
+    public void followMouse()
+    {
+        if(Input.mousePosition.x < deadZoneXNegative)
+        {
+            yawLeft(1);
+        }
+        else if(Input.mousePosition.x > deadZoneXPositive)
+        {
+            yawRight(1);
+        }
+
+        if(Input.mousePosition.y < deadZoneYNegative)
+        {
+            yawDown(1);
+        }
+        else if(Input.mousePosition.y > deadZoneYPositive)
+        {
+            yawUp(1);
+        }
     }
 
     public void moveForward()
