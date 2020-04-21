@@ -108,10 +108,10 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     //TODO move this to KeyboardController
     void calcDeadZones()
     {
-        deadZoneXPositive = screenWidthHalf + screenWidthHalf / 2;
-        deadZoneXNegative = screenWidthHalf - screenWidthHalf / 2;
-        deadZoneYPositive = screenHeightHalf + screenHeightHalf / 2;
-        deadZoneYNegative = screenHeightHalf - screenHeightHalf / 2;
+        deadZoneXPositive = screenWidthHalf + screenWidthHalf / 4;
+        deadZoneXNegative = screenWidthHalf - screenWidthHalf / 4;
+        deadZoneYPositive = screenHeightHalf + screenHeightHalf / 4;
+        deadZoneYNegative = screenHeightHalf - screenHeightHalf / 4;
     }
 
     [System.ObsoleteAttribute("This method is obsolete. Call followMouse() instead.", true)]
@@ -123,25 +123,37 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         transform.Rotate(Vector3.right, fy * yawSensitivity * Time.deltaTime);
     }
 
-    //TODO move this to KeyboardController, replace in yaw, '1' with a smoothed out factor
+    //TODO move this to KeyboardController
     public void followMouse()
     {
         if(Input.mousePosition.x < deadZoneXNegative)
         {
-            yawLeft(1);
+            float mouseMidDistance = screenWidthHalf - Input.mousePosition.x;
+            float smoothFactor = mouseMidDistance / screenWidthHalf;
+            //Debug.Log(smoothFactor + "= " + mouseMidDistance + "/" + screenWidthHalf);
+            yawLeft(smoothFactor);
         }
         else if(Input.mousePosition.x > deadZoneXPositive)
         {
-            yawRight(1);
+            float mouseMidDistance = screenWidthHalf - Input.mousePosition.x;
+            float smoothFactor = mouseMidDistance / screenWidthHalf;
+            //Debug.Log(-smoothFactor + "= " + mouseMidDistance + "/" + screenWidthHalf);
+            yawRight(-smoothFactor);
         }
 
         if(Input.mousePosition.y < deadZoneYNegative)
         {
-            yawDown(1);
+            float mouseMidDistance = screenHeightHalf - Input.mousePosition.y;
+            float smoothFactor = mouseMidDistance / screenHeightHalf;
+            //Debug.Log(smoothFactor + "= " + mouseMidDistance + "/" + screenWidthHalf);
+            yawDown(smoothFactor);
         }
         else if(Input.mousePosition.y > deadZoneYPositive)
         {
-            yawUp(1);
+            float mouseMidDistance = screenHeightHalf - Input.mousePosition.y;
+            float smoothFactor = mouseMidDistance / screenHeightHalf;
+            //Debug.Log(-smoothFactor + "= " + mouseMidDistance + "/" + screenWidthHalf);
+            yawUp(-smoothFactor);
         }
     }
 
