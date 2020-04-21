@@ -42,6 +42,7 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
     [Header("Sheet")]
     //Sheet
+    public Player player;
     public int hpMax = 10;
     public int hpCurrent;
     public float energyMax = 100f;
@@ -303,6 +304,11 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         mainCamera.transform.parent = null; // decouples the camera from the player ship so it won't get destroyed
 
         GameObject explosion = Instantiate(explosionFx, transform.position, transform.rotation); //spawn an explosion
+        if(player != null)
+        {
+            StartCoroutine(player.startRespawnCounter());
+        }
+        Destroy(mainCamera.gameObject);
         Destroy(gameObject, deathDelay); //Destroy the ship object
     }
 
