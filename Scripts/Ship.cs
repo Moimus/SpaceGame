@@ -32,13 +32,13 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     public float yawSensitivity = 0.5f;
     public float yawSpeed = 200; //Controller only
 
-    int screenWidthHalf = Screen.width / 2;
-    int screenHeightHalf = Screen.height / 2;
-    int deadZoneXPositive;
-    int deadZoneXNegative;
-    int deadZoneYPositive;
-    int deadZoneYNegative;
-    int displayAspectRatio;
+    int screenWidthHalf = Screen.width / 2;  //TODO move this to KeyboardController
+    int screenHeightHalf = Screen.height / 2; //TODO move this to KeyboardController
+    int deadZoneXPositive; //TODO move this to KeyboardController
+    int deadZoneXNegative; //TODO move this to KeyboardController
+    int deadZoneYPositive; //TODO move this to KeyboardController
+    int deadZoneYNegative; //TODO move this to KeyboardController
+    int displayAspectRatio; //TODO move this to KeyboardController
 
     [Header("Sheet")]
     //Sheet
@@ -70,16 +70,16 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         energyCurrent = energyMax;
         fuelCurrent = fuelMax;
 
-        Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
-        Debug.Log(Screen.width);
-        Debug.Log(Screen.height);
+        //Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
+        //Debug.Log(Screen.width);
+        //Debug.Log(Screen.height);
     }
 
     // Update is called once per frame
     void Update()
     {
         // Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
-        Debug.Log(Input.mousePosition.x + "//" + Input.mousePosition.y);
+        //Debug.Log(Input.mousePosition.x + "//" + Input.mousePosition.y);
     }
 
     public void stateLoop()
@@ -105,12 +105,13 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         displayAspectRatio = (int)mainCamera.aspect * Screen.width / Screen.height;
     }
 
+    //TODO move this to KeyboardController
     void calcDeadZones()
     {
-        deadZoneXPositive = screenWidthHalf + 128;
-        deadZoneXNegative = screenWidthHalf - 128;
-        deadZoneYPositive = screenHeightHalf + 56;
-        deadZoneYNegative = screenHeightHalf - 56;
+        deadZoneXPositive = screenWidthHalf + screenWidthHalf / 2;
+        deadZoneXNegative = screenWidthHalf - screenWidthHalf / 2;
+        deadZoneYPositive = screenHeightHalf + screenHeightHalf / 2;
+        deadZoneYNegative = screenHeightHalf - screenHeightHalf / 2;
     }
 
     [System.ObsoleteAttribute("This method is obsolete. Call followMouse() instead.", true)]
