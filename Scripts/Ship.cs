@@ -108,10 +108,10 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     //TODO move this to KeyboardController
     void calcDeadZones()
     {
-        deadZoneXPositive = screenWidthHalf + screenWidthHalf / 4;
-        deadZoneXNegative = screenWidthHalf - screenWidthHalf / 4;
-        deadZoneYPositive = screenHeightHalf + screenHeightHalf / 4;
-        deadZoneYNegative = screenHeightHalf - screenHeightHalf / 4;
+        deadZoneXPositive = screenWidthHalf + screenWidthHalf / 10;
+        deadZoneXNegative = screenWidthHalf - screenWidthHalf / 10;
+        deadZoneYPositive = screenHeightHalf + screenHeightHalf / 10;
+        deadZoneYNegative = screenHeightHalf - screenHeightHalf / 10;
     }
 
     [System.ObsoleteAttribute("This method is obsolete. Call followMouse() instead.", true)]
