@@ -122,7 +122,7 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         transform.Rotate(Vector3.right, fy * yawSensitivity * Time.deltaTime);
     }
 
-    //TODO
+    //TODO move this to KeyboardController, replace in yaw, '1' with a smoothed out factor
     public void followMouse()
     {
         if(Input.mousePosition.x < deadZoneXNegative)
