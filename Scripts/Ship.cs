@@ -99,7 +99,7 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     {
         float fx = Math.cubed((Input.mousePosition.x - screenWidthHalf) / (90));
         transform.Rotate(Vector3.up, fx * yawSensitivity * Time.deltaTime);
-        float fy = Math.cubed(-(Input.mousePosition.y - screenHeightHalf) / (90)) * displayAspectRatio;
+        float fy = Math.cubed(-(Input.mousePosition.y - screenHeightHalf) / (90)) * 2;
         transform.Rotate(Vector3.right, fy * yawSensitivity * Time.deltaTime);
     }
 
