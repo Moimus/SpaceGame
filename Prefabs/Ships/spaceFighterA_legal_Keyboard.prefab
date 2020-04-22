@@ -5820,7 +5820,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -6461,5 +6461,5 @@ MonoBehaviour:
   deathDelay: 0
   explosionFx: {fileID: 8438263367070403207, guid: 01b80a19eb24be646ad08e423cfda189,
     type: 3}
-  scanPrefab: {fileID: 4520328146637680205, guid: f259b5619ec18384e8158f3139f020d8,
+  scanPrefab: {fileID: 6315118561878513978, guid: f259b5619ec18384e8158f3139f020d8,
     type: 3}
