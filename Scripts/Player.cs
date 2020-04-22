@@ -19,10 +19,15 @@ public class Player : MonoBehaviour
         
     }
 
-    public IEnumerator startRespawnCounter()
+    public void startRespawnCounter()
+    {
+        StartCoroutine(respawnCounter());
+    }
+
+    public IEnumerator respawnCounter()
     {
         Debug.Log("respawn!");
-        //yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(5);
         GameObject newShip = Instantiate(ship, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         newShip.GetComponent<Ship>().player = this;
         yield return null;

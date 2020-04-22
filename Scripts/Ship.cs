@@ -306,9 +306,9 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         GameObject explosion = Instantiate(explosionFx, transform.position, transform.rotation); //spawn an explosion
         if(player != null)
         {
-            StartCoroutine(player.startRespawnCounter());
+            player.startRespawnCounter();
         }
-        Destroy(mainCamera.gameObject);
+        Destroy(mainCamera.gameObject,5f);
         Destroy(gameObject, deathDelay); //Destroy the ship object
     }
 
