@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     public Ship ship;
     public GameObject bulletSpawner;
     public GameObject projectile;
+    public float energyConsumption = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class Weapon : MonoBehaviour
             p.GetComponent<Projectile>().owner = ship.gameObject.transform;
             p.transform.position = bulletSpawner.transform.position;
             p.transform.rotation = bulletSpawner.transform.rotation;
-            ship.energyCurrent -= 10f;
+            ship.energyCurrent -= energyConsumption;
         }
     }
     
