@@ -2042,18 +2042,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 852855610}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &731845723 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 209790055445437685, guid: 04c79cb3540be104797df20badbe4244,
-    type: 3}
-  m_PrefabInstance: {fileID: 209790055167842480}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &753874000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5256,11 +5244,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: spaceFighterA_legal_GamePad
       objectReference: {fileID: 0}
-    - target: {fileID: 8904182358110411361, guid: c0b6f12767e22dd489f4115ab6f1a874,
-        type: 3}
-      propertyPath: ship
-      value: 
-      objectReference: {fileID: 731845723}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0b6f12767e22dd489f4115ab6f1a874, type: 3}
 --- !u!33 &2080661175097825877

@@ -10,7 +10,7 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
     [Header("Weapons")]
     //Weapons
-    public Weapon weapon;
+    public Weapon[] weapons;
     /*
     public GameObject bulletSpawner;
     public GameObject projectile;
@@ -79,8 +79,15 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     // Update is called once per frame
     void Update()
     {
+        stateLoop();
         // Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
         //Debug.Log(Input.mousePosition.x + "//" + Input.mousePosition.y);
+    }
+
+    public void construct(bool hasUI)
+    {
+        this.hasUI = hasUI;
+
     }
 
     public void stateLoop()
@@ -230,11 +237,14 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         }
     }
     
-    public void fireWeapon()
+    public void fireWeapons()
     {
-        if (weapon != null)
+        if (weapons != null)
         {
-            weapon.fire();
+            foreach(Weapon w in weapons)
+            {
+                w.fire();
+            }
         }
     }
     

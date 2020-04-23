@@ -21,7 +21,6 @@ public class PlayerControllerGamepad : MonoBehaviour
     void Update()
     {
         StartCoroutine(checkInput());
-        ship.stateLoop();
     }
 
     IEnumerator checkInput()
@@ -95,7 +94,7 @@ public class PlayerControllerGamepad : MonoBehaviour
         if (Input.GetButtonDown("P1Xbutton"))
         {
             //Debug.Log("X-Button down");
-            ship.fireWeapon();
+            ship.fireWeapons();
         }
 
         if (Input.GetButtonDown("P1Ybutton"))

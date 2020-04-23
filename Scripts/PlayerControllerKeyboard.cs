@@ -18,7 +18,6 @@ public class PlayerControllerKeyboard : MonoBehaviour
     {
         checkMouseInput();
         checkKeyboardInput();
-        ship.stateLoop();
     }
 
 
@@ -71,7 +70,7 @@ public class PlayerControllerKeyboard : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ship.fireWeapon();
+            ship.fireWeapons();
         }
 
         if (Input.GetMouseButton(1))

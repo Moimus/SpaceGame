@@ -5948,6 +5948,7 @@ Transform:
   - {fileID: 1851133314725963688}
   - {fileID: 1851133314224979941}
   - {fileID: 74837862367121383}
+  - {fileID: 425339644128528266}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5994,7 +5995,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasUI: 1
   ui: {fileID: 1851133314224979938}
-  weapon: {fileID: 8904182358110411361}
+  weapons:
+  - {fileID: 8904182358110411361}
+  - {fileID: 9186496792268689932}
   speedCurrent: 0
   speedMax: 10
   acceleration: 2
@@ -6034,6 +6037,98 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 1851133315828987490}
+--- !u!1001 &1851133315101728998
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6686226140253662232}
+    m_Modifications:
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.557
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090867338877118469, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserGun (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 1851133315828987490}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
+--- !u!4 &425339644128528266 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1851133315101728998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9186496792268689932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1851133315101728998}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469dad4f5603fd442b86d727f8a4b80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2116260221613500555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6101,6 +6196,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun
       objectReference: {fileID: 0}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 1851133315828987490}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
 --- !u!4 &74837862367121383 stripped
