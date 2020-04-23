@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform != owner)
+        if(other.transform != owner && other.tag != "NoProjectileTrigger")
         {
             if(other.GetComponent<IHitable>() != null)
             {

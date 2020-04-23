@@ -7,6 +7,7 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     [Header("UI")]
     public bool hasUI = false;
     public PlayerUI ui;
+    public MarkerUI markerUI;
 
     [Header("Weapons")]
     //Weapons
@@ -43,6 +44,7 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     [Header("Sheet")]
     //Sheet
     public Player player;
+    public bool alive = true;
     public int hpMax = 10;
     public int hpCurrent;
     public float energyMax = 100f;
@@ -61,6 +63,8 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
     //Scanner
     public GameObject scanPrefab;
+    public List<Ship> scannedShips = new List<Ship>();
+    public List<Marker> relatedMarkers = new List<Marker>(); // list of markers that mark this ship on other UIs
 
     // Start is called before the first frame update
     void Start()
@@ -251,6 +255,18 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     public void scan()
     {
         GameObject scan = Instantiate(scanPrefab, transform.position, transform.rotation, transform);
+        scan.GetComponent<Scan>().owner = this;
+    }
+
+    public void cleanScannedShips() //removes missing ships from scannedShips after they got destroyed
+    {
+        foreach(Ship s in scannedShips)
+        {
+            if(s == null)
+            {
+                scannedShips.Remove(s);
+            }
+        }
     }
 
     protected void rechargeEnergy()
@@ -305,7 +321,11 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
     {
         if(hpCurrent <= 0)
         {
-            onDestroy();
+            if(alive)
+            {
+                alive = false;
+                onDestroy();
+            }
         }
     }
 
@@ -318,6 +338,13 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
         {
             player.startRespawnCounter();
         }
+
+        foreach(Marker m in relatedMarkers)
+        {
+            m.uiOwner.scannedShips.Remove(this);
+            StartCoroutine(m.onDestroy());
+        }
+
         Destroy(mainCamera.gameObject,5f);
         Destroy(gameObject, deathDelay); //Destroy the ship object
     }
@@ -370,4 +397,5 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
             ui.setEnergyCounter((int)energyCurrent);
         }
     }
+
 }

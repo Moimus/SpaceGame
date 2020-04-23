@@ -16,7 +16,8 @@ public class ProNavTest : MonoBehaviour
     {
         //Debug.Log("Vt=" + target.GetComponent<Rigidbody>().velocity.ToString() + "// Vm= " + GetComponent<Rigidbody>().velocity.ToString());
         //Debug.Log(Math.getProNavRotationVector(transform.position, target.position, GetComponent<Rigidbody>().velocity, target.GetComponent<Rigidbody>().velocity).ToString());
-        transform.Translate(Vector3.forward * Time.deltaTime);
+        transform.Translate(Vector3.forward * Time.deltaTime
+            );
         transform.Rotate(Math.getProNavRotationVector(transform.position, target.position, -Vector3.forward, target.forward) * Time.deltaTime * 300);
     }
 }

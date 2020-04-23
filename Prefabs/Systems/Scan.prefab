@@ -89,9 +89,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7059558474046794537}
   - component: {fileID: 3454083790032178230}
+  - component: {fileID: 264148469212529408}
   m_Layer: 0
   m_Name: Scan
-  m_TagString: Untagged
+  m_TagString: NoProjectileTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +126,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 5
-  speed: 5
+  speed: 10
+  owner: {fileID: 0}
+--- !u!135 &264148469212529408
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6315118561878513978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7104792580684004448
 GameObject:
   m_ObjectHideFlags: 0
