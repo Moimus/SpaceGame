@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 5
-  speed: 10
+  speed: 20
   owner: {fileID: 0}
 --- !u!135 &264148469212529408
 SphereCollider:
