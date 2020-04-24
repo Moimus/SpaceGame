@@ -5,6 +5,7 @@ using UnityEngine;
 public class MarkerUI : MonoBehaviour
 {
     public GameObject markerPrefab;
+    public GameObject hitMarkerPrefab;
     public Canvas canvas;
 
     // Start is called before the first frame update
@@ -25,5 +26,11 @@ public class MarkerUI : MonoBehaviour
         markerInstance.GetComponent<Marker>().uiOwner = transform.parent.GetComponent<Ship>();
         markerInstance.GetComponent<Marker>().markedObject = targetShip.transform;
         targetShip.relatedMarkers.Add(markerInstance.GetComponent<Marker>());
+    }
+
+    public void spawnHitMarker()
+    {
+        GameObject hitMarker = Instantiate(hitMarkerPrefab, canvas.transform);
+        hitMarker.transform.localPosition = new Vector2(0, 100);
     }
 }

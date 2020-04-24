@@ -2042,12 +2042,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 852855610}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &738899815 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6686226140253662232, guid: c0b6f12767e22dd489f4115ab6f1a874,
-    type: 3}
-  m_PrefabInstance: {fileID: 1851133315513602161}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &753874000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4836,11 +4830,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 209790055433211269, guid: 04c79cb3540be104797df20badbe4244,
-        type: 3}
-      propertyPath: markedObject
-      value: 
-      objectReference: {fileID: 738899815}
     - target: {fileID: 209790055445437685, guid: 04c79cb3540be104797df20badbe4244,
         type: 3}
       propertyPath: player

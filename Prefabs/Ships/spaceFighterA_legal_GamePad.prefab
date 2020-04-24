@@ -6186,6 +6186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markerPrefab: {fileID: 3475094455946643188, guid: 456f3c80ebb2db34c89019c65833bff8,
     type: 3}
+  hitMarkerPrefab: {fileID: 4115908867039813216, guid: 93457825512441c4ca4c078fa97b3ba7,
+    type: 3}
   canvas: {fileID: 5382008379442202271}
 --- !u!1001 &1851133315101728998
 PrefabInstance:

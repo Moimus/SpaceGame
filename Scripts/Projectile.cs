@@ -39,6 +39,7 @@ public class Projectile : MonoBehaviour
                 if(other.GetComponent<Ship>() != null)
                 {
                     other.GetComponent<Ship>().onHit(damage);
+                    ownerShip.markerUI.spawnHitMarker();
                 }
             }
             Destroy(gameObject);
