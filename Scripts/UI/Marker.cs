@@ -26,18 +26,19 @@ public class Marker : MonoBehaviour
     protected virtual void init()
     {
         rectTransform = GetComponent<RectTransform>();
-        StartCoroutine(updatePosition());
+        StartCoroutine(lifeCycle());
     }
 
-    protected virtual IEnumerator updatePosition()
+    protected virtual IEnumerator lifeCycle()
     {
-        while(true)
+        while(true) //TODO test for memory leaks
         {
             
             Vector3 targetRelativePos = uiOwner.mainCamera.WorldToScreenPoint(markedObject.position);
+            Debug.Log(targetRelativePos.ToString());
             Vector2 localPoint;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), targetRelativePos, uiOwner.mainCamera, out localPoint);
-            if(localPoint.x > -screenWidthHalf && localPoint.x < screenWidthHalf && localPoint.y > -screenHeightQuarter && localPoint.y < screenHeightQuarter)
+            if(localPoint.x > -screenWidthHalf && localPoint.x < screenWidthHalf && localPoint.y > -screenHeightQuarter && localPoint.y < screenHeightQuarter && targetRelativePos.z > 0)
             {
                 rectTransform.localPosition = new Vector3(localPoint.x, localPoint.y, uiOwner.mainCamera.nearClipPlane + 0.1f);
             }
@@ -52,7 +53,7 @@ public class Marker : MonoBehaviour
     public virtual IEnumerator onDestroy()
     {
         uiOwner.scannedShips.Remove(markedObject.GetComponent<Ship>());
-        StopCoroutine(updatePosition());
+        StopCoroutine(lifeCycle());
         Destroy(gameObject);
         yield return null;
     }
