@@ -63,7 +63,7 @@ public class Marker : MonoBehaviour
 
     void updateDistanceText()
     {
-        float distance = Vector3.Distance(markedObject.position, uiOwner.transform.position * 10);
+        float distance = Vector3.Distance(markedObject.position, uiOwner.transform.position) * 10;
         string distanceString = distance.ToString();
         string text = distanceString.Substring(0, distanceString.Length - 3);
         distanceText.text = text;
