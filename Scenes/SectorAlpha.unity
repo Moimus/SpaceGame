@@ -863,6 +863,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64470388865483344b92093e7eed45ee, type: 3}
+--- !u!114 &226370699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 209790055445437685, guid: 04c79cb3540be104797df20badbe4244,
+    type: 3}
+  m_PrefabInstance: {fileID: 209790055167842480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &263577275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6704456593778874704, guid: aa70bb06e578b4e2ba5c3516d7e51888,
@@ -2696,6 +2708,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd77422f4eecd9f45b4f3b62a5d6d626, type: 3}
+--- !u!114 &995397463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1851133315828987490, guid: c0b6f12767e22dd489f4115ab6f1a874,
+    type: 3}
+  m_PrefabInstance: {fileID: 1851133315513602161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1019831053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6704456593778874704, guid: aa70bb06e578b4e2ba5c3516d7e51888,
@@ -4830,6 +4854,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 741043186, guid: 04c79cb3540be104797df20badbe4244, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 226370699}
     - target: {fileID: 209790055445437685, guid: 04c79cb3540be104797df20badbe4244,
         type: 3}
       propertyPath: player
@@ -5184,6 +5212,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1062684794}
+    - target: {fileID: 5580653640847304077, guid: c0b6f12767e22dd489f4115ab6f1a874,
+        type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 995397463}
     - target: {fileID: 6686226140253662232, guid: c0b6f12767e22dd489f4115ab6f1a874,
         type: 3}
       propertyPath: m_LocalPosition.x
