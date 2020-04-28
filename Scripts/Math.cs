@@ -19,6 +19,17 @@ class Math
         return x;
     }
 
+    public static bool valueIsBetween(float value, float bMin, float bMax)
+    {
+        if(value > bMin && value < bMax)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     //TODO
     //see https://en.wikipedia.org/wiki/Proportional_navigation
