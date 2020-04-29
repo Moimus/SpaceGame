@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
+    public List<Transform> respawnPoints;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +18,4 @@ public class GameMaster : MonoBehaviour
         
     }
 
-    public void respawnPlayer()
-    {
-
-    }
 }

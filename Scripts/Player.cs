@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameMaster gameMaster;
     public GameObject ship;
     public bool gamepadControl = false;
 
