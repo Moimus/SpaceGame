@@ -18,4 +18,17 @@ public class GameMaster : MonoBehaviour
         
     }
 
+    public Vector3 getRandomRespawnPosition()
+    {
+        int rand = Random.Range(0, respawnPoints.Count);
+        try
+        {
+            return respawnPoints[rand].position;
+        }
+        catch(System.ArgumentOutOfRangeException are)
+        {
+            return new Vector3(0, 0, 0);
+        }
+    }
+
 }

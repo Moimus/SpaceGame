@@ -29,7 +29,8 @@ public class Player : MonoBehaviour
     {
         Debug.Log("respawn!");
         yield return new WaitForSeconds(5);
-        GameObject newShip = Instantiate(ship, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        Vector3 respawnPosition = gameMaster.getRandomRespawnPosition();
+        GameObject newShip = Instantiate(ship, respawnPosition, new Quaternion(0, 0, 0, 0));
         newShip.GetComponent<Ship>().player = this;
         yield return null;
     }
