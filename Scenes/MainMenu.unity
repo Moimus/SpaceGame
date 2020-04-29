@@ -978,7 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9836061649f8347b2b0a5316f694fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathMatchmap: SectorAlpha
+  deathMatchmap: DeathMatch
 --- !u!1 &1869259003
 GameObject:
   m_ObjectHideFlags: 0
