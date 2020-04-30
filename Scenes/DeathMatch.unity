@@ -592,6 +592,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 43365041}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &56303253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 209790055445437685, guid: 04c79cb3540be104797df20badbe4244,
+    type: 3}
+  m_PrefabInstance: {fileID: 831149258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &57374502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8633668553946037735, guid: be72fc6dd66f3f140adde7a8d3f54a03,
@@ -5663,6 +5675,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9777c88128416c14ab084e17b5bd68f3, type: 3}
+--- !u!114 &631329195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1851133315828987490, guid: c0b6f12767e22dd489f4115ab6f1a874,
+    type: 3}
+  m_PrefabInstance: {fileID: 867396686}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &643270445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9779,8 +9803,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMaster: {fileID: 1171112120}
-  ship: {fileID: 7679031982878547467, guid: c0b6f12767e22dd489f4115ab6f1a874, type: 3}
+  playerNo: 2
+  shipPrefab: {fileID: 7679031982878547467, guid: c0b6f12767e22dd489f4115ab6f1a874,
+    type: 3}
+  ship: {fileID: 631329195}
   gamepadControl: 1
+  respawnTickets: 0
 --- !u!4 &1062684795
 Transform:
   m_ObjectHideFlags: 0
@@ -11258,6 +11286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1171112121}
   - component: {fileID: 1171112120}
+  - component: {fileID: 1171112122}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -11282,6 +11311,10 @@ MonoBehaviour:
   - {fileID: 258588178}
   - {fileID: 1981298076}
   - {fileID: 1581265786}
+  respawnTickets: 0
+  gameMode: 1
+  player1: {fileID: 1434094832}
+  player2: {fileID: 1062684794}
 --- !u!4 &1171112121
 Transform:
   m_ObjectHideFlags: 0
@@ -11300,6 +11333,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1171112122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171112119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2235b3140d4d8148b208454cebc2a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 1434094832}
+  player2: {fileID: 1062684794}
+  messagePrefab: {fileID: 3857761115044172792, guid: 492358f18b27691439e0e704cd3dbf83,
+    type: 3}
 --- !u!1001 &1178006549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13013,8 +13062,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMaster: {fileID: 1171112120}
-  ship: {fileID: 8199014123758092031, guid: 04c79cb3540be104797df20badbe4244, type: 3}
+  playerNo: 1
+  shipPrefab: {fileID: 8199014123758092031, guid: 04c79cb3540be104797df20badbe4244,
+    type: 3}
+  ship: {fileID: 56303253}
   gamepadControl: 0
+  respawnTickets: 0
 --- !u!4 &1434094833
 Transform:
   m_ObjectHideFlags: 0

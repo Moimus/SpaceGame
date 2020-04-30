@@ -6189,6 +6189,7 @@ MonoBehaviour:
     type: 3}
   hitMarkerPrefab: {fileID: 4115908867039813216, guid: 93457825512441c4ca4c078fa97b3ba7,
     type: 3}
+  crossHair: {fileID: 3126059200447980427}
   canvas: {fileID: 5382008379442202271}
 --- !u!1001 &1851133315101728998
 PrefabInstance:
@@ -6493,6 +6494,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8da530b271257bb4981175934b5ec7ba, type: 3}
+--- !u!1 &3126059200447980427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 726290423193202904, guid: 8da530b271257bb4981175934b5ec7ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 2411030044139443027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3126059200447980426 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 726290423193202905, guid: 8da530b271257bb4981175934b5ec7ba,

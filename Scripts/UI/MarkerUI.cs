@@ -6,6 +6,7 @@ public class MarkerUI : MonoBehaviour
 {
     public GameObject markerPrefab;
     public GameObject hitMarkerPrefab;
+    public GameObject crossHair;
     public Canvas canvas;
 
     // Start is called before the first frame update
