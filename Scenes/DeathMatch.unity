@@ -11311,7 +11311,7 @@ MonoBehaviour:
   - {fileID: 258588178}
   - {fileID: 1981298076}
   - {fileID: 1581265786}
-  respawnTickets: 0
+  respawnTickets: 5
   gameMode: 1
   player1: {fileID: 1434094832}
   player2: {fileID: 1062684794}
