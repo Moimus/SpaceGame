@@ -97,4 +97,5 @@ public class AIFollowWaypoints : MonoBehaviour, IAIPackage
             controller.ship.slowDown();
         }
     }
+
 }

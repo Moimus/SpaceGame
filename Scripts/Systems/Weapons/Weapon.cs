@@ -22,13 +22,22 @@ public class Weapon : MonoBehaviour
     }
     public void fire()
     {
-        if(ship.energyCurrent > 0)
+        if(ship != null)
+        {
+            if (ship.energyCurrent > 0)
+            {
+                GameObject p = Instantiate(projectile);
+                p.GetComponent<Projectile>().owner = ship.gameObject.transform;
+                p.transform.position = bulletSpawner.transform.position;
+                p.transform.rotation = bulletSpawner.transform.rotation;
+                ship.energyCurrent -= energyConsumption;
+            }
+        }
+        else
         {
             GameObject p = Instantiate(projectile);
-            p.GetComponent<Projectile>().owner = ship.gameObject.transform;
             p.transform.position = bulletSpawner.transform.position;
             p.transform.rotation = bulletSpawner.transform.rotation;
-            ship.energyCurrent -= energyConsumption;
         }
     }
     

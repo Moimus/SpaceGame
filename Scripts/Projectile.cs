@@ -25,8 +25,11 @@ public class Projectile : MonoBehaviour
     //TODO
     protected virtual void init()
     {
-        ownerShip = owner.GetComponent<Ship>();
-        speed += ownerShip.speedCurrent;
+        if(owner != null)
+        {
+            ownerShip = owner.GetComponent<Ship>();
+            speed += ownerShip.speedCurrent;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
