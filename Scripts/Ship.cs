@@ -114,7 +114,10 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
     void calcAspectRatio()
     {
-        displayAspectRatio = (int)mainCamera.aspect * Screen.width / Screen.height;
+        if(mainCamera != null)
+        {
+            displayAspectRatio = (int)mainCamera.aspect * Screen.width / Screen.height;
+        }
     }
 
     //TODO move this to KeyboardController
@@ -331,7 +334,11 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
 
     public void onDestroy()
     {
-        mainCamera.transform.parent = null; // decouples the camera from the player ship so it won't get destroyed
+        if(mainCamera != null)
+        {
+            mainCamera.transform.parent = null; // decouples the camera from the player ship so it won't get destroyed
+            Destroy(mainCamera.gameObject, 5f); // destroy the camera with some delay (deathCam)
+        }
 
         GameObject explosion = Instantiate(explosionFx, transform.position, transform.rotation); //spawn an explosion
         if(player != null)
@@ -345,7 +352,6 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
             StartCoroutine(m.onDestroy());
         }
 
-        Destroy(mainCamera.gameObject,5f);
         Destroy(gameObject, deathDelay); //Destroy the ship object
     }
 
@@ -396,6 +402,14 @@ public class Ship : MonoBehaviour, IHitable, IDestructable
             ui.setSpeedCounter((int)speedCurrent);
             ui.setEnergyCounter((int)energyCurrent);
         }
+    }
+
+    //AI functions
+    public void lookAt(Vector3 point)
+    {
+        float step = yawSpeed * 0.01f * Time.deltaTime;
+        Quaternion rotQuat = Quaternion.LookRotation(point - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotQuat, step);
     }
 
 }
