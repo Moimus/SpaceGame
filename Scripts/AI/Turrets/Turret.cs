@@ -22,17 +22,21 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lookAtTarget();
         stateLoop();
     }
 
     void stateLoop()
     {
-        if(remainingCooldown > 0)
+        if(target != null)
+        {
+            lookAtTarget();
+        }
+        
+        if (remainingCooldown > 0)
         {
             remainingCooldown -= Time.deltaTime;
         }
-        else if(remainingCooldown <= 0)
+        else if(remainingCooldown <= 0 && target != null)
         {
             fireWeapons();
         }
