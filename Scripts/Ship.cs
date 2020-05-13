@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour, IHitable, IDestructable
+public class Ship : Entity, IHitable, IDestructable
 {
     [Header("UI")]
     public bool hasUI = false;

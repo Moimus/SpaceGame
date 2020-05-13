@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : Entity
 {
     public GameObject rotatorLeftRight;
     public GameObject rotatorUpDown;
     public Weapon[] weapons;
-    public Ship target;
+    public Entity target;
     public float rotationSpeed = 1;
     public float fireCooldown = 0.5f;
     private float remainingCooldown = 0;
@@ -44,8 +44,16 @@ public class Turret : MonoBehaviour
 
     void lookAtTarget()
     {
-        lookAtTargetLeftRight();
-        lookAtTargetUpDown();
+        try
+        {
+            lookAtTargetLeftRight();
+            lookAtTargetUpDown();
+        }
+        catch(System.NullReferenceException)
+        {
+            target = null;
+        }
+
     }
 
     void lookAtTargetLeftRight()
@@ -74,5 +82,10 @@ public class Turret : MonoBehaviour
             w.fire();
         }
         remainingCooldown = fireCooldown;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 }

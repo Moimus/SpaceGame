@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    enum states
+    public enum states
     {
         dead = -1,
         idle = 0,
@@ -15,6 +15,7 @@ public class AIController : MonoBehaviour
     public Ship ship;
     public IAIPackage activeAIPack;
     public AIFollowWaypoints followWaypointPack;
+
     
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class AIController : MonoBehaviour
     public void setState(int state)
     {
         this.state = state;
-        if(state == 0 || state == -1)
+        if(state == (int)states.idle || state == (int)states.dead)
         {
             activeAIPack = null;
         }
