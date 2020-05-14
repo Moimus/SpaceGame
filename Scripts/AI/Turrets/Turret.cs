@@ -6,6 +6,7 @@ public class Turret : Entity, IHitable, IDestructable
 {
     public GameObject rotatorLeftRight;
     public GameObject rotatorUpDown;
+    public TurretScanner scanner;
     public Weapon[] weapons;
     public Entity target;
     public float rotationSpeed = 1;
@@ -65,6 +66,7 @@ public class Turret : Entity, IHitable, IDestructable
 
     void calcTargetOffset()
     {
+        scanner.setTargetOffset();
         float rand = Random.Range(-targetOffsetMax, targetOffsetMax);
         if (targetOffsetRemaining > 0)
         {
@@ -97,7 +99,7 @@ public class Turret : Entity, IHitable, IDestructable
     void lookAtTargetLeftRight()
     {
         float step = rotationSpeed * Time.deltaTime;
-        Vector3 trajectory = new Vector3(target.transform.position.x, target.transform.position.y + targetOffsetUp, target.transform.position.z + targetOffsetForward); //actual point to aim at
+        Vector3 trajectory = new Vector3(target.transform.position.x, target.transform.position.y , target.transform.position.z + targetOffsetForward); //actual point to aim at
         Quaternion rotQuat = Quaternion.LookRotation(trajectory - rotatorLeftRight.transform.position);
         Quaternion targetRotation = (Quaternion.Slerp(rotatorLeftRight.transform.rotation, rotQuat, step));
         Quaternion targetAngle = new Quaternion(rotatorLeftRight.transform.rotation.x, targetRotation.y, rotatorLeftRight.transform.rotation.z, rotatorLeftRight.transform.rotation.w);
@@ -107,7 +109,7 @@ public class Turret : Entity, IHitable, IDestructable
     void lookAtTargetUpDown()
     {
         float step = rotationSpeed * Time.deltaTime;
-        Vector3 trajectory = new Vector3(target.transform.position.x, target.transform.position.y + targetOffsetUp, target.transform.position.z + targetOffsetForward); //actual point to aim at
+        Vector3 trajectory = new Vector3(target.transform.position.x, target.transform.position.y + targetOffsetUp, target.transform.position.z); //actual point to aim at
         Quaternion rotQuat = Quaternion.LookRotation(target.transform.position - rotatorUpDown.transform.position);
         Quaternion targetRotation = (Quaternion.Slerp(rotatorUpDown.transform.rotation, rotQuat, step));
         Debug.Log(rotatorUpDown.transform.rotation.ToString());

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1706992674111076683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.00054851046, y: 0.0005485105, z: 0.0005485105}
   m_Children:
   - {fileID: 7246742450938346642}
   - {fileID: 533897744500191663}
@@ -55,6 +55,7 @@ MonoBehaviour:
   speedCurrent: 0
   rotatorLeftRight: {fileID: 7246742450173255386}
   rotatorUpDown: {fileID: 7246742450895637528}
+  scanner: {fileID: 7246742450938346640}
   weapons:
   - {fileID: 170551869058292546}
   - {fileID: 170551868742584257}
@@ -64,7 +65,7 @@ MonoBehaviour:
   targetOffsetInterval: 0.3
   targetOffsetUp: 0
   targetOffsetForward: 0
-  targetOffsetStep: 2
+  targetOffsetStep: 1
   targetOffsetMax: 0
   explosionFx: {fileID: 8438263367070403207, guid: 01b80a19eb24be646ad08e423cfda189,
     type: 3}
@@ -426,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e1dc0bdf366e841abb1dce68d01716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
+  owner: {fileID: 1706992674111076682}
 --- !u!135 &7246742450938346641
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -18,6 +18,11 @@ public class TurretScanner : MonoBehaviour
         
     }
 
+    public void setTargetOffset()
+    {
+        owner.targetOffsetMax = owner.target.speedCurrent * 2f;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         try
@@ -28,7 +33,7 @@ public class TurretScanner : MonoBehaviour
                 if (entity.faction != owner.faction && owner.target == null)
                 {
                     owner.target = entity;
-                    owner.targetOffsetMax = owner.target.speedCurrent * 1.5f;
+                    setTargetOffset();
                 }
             }
         }
