@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Ship ship;
+    public Entity owner;
     public GameObject bulletSpawner;
     public GameObject projectile;
     public float energyConsumption = 5f;
@@ -22,15 +22,29 @@ public class Weapon : MonoBehaviour
     }
     public void fire()
     {
-        if(ship != null)
+        Ship ship;
+        ship = owner as Ship;
+        if(owner != null)
         {
-            if (ship.energyCurrent > 0)
+            if (ship != null && ship.energyCurrent > 0)
             {
                 GameObject p = Instantiate(projectile);
                 p.GetComponent<Projectile>().owner = ship.gameObject.transform;
+                p.GetComponent<Projectile>().faction = owner.faction;
                 p.transform.position = bulletSpawner.transform.position;
                 p.transform.rotation = bulletSpawner.transform.rotation;
-                ship.energyCurrent -= energyConsumption;
+                if(ship != null)
+                {
+                    ship.energyCurrent -= energyConsumption;
+                }
+            }
+            else if(ship == null)
+            {
+                GameObject p = Instantiate(projectile);
+                p.GetComponent<Projectile>().owner = owner.gameObject.transform;
+                p.GetComponent<Projectile>().faction = owner.faction;
+                p.transform.position = bulletSpawner.transform.position;
+                p.transform.rotation = bulletSpawner.transform.rotation;
             }
         }
         else

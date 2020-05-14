@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [Header("Entity")]
+    [Header("Sheet : Entity")]
     public int faction = 0;
+    public bool alive = true;
+    public int hpMax = 10;
+    public int hpCurrent;
+
+    [Header("ControlVariables : Entitiy")]
+    public float speedCurrent = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,4 +24,5 @@ public class Entity : MonoBehaviour
     {
         
     }
+
 }

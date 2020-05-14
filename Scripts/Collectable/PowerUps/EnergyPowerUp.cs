@@ -45,4 +45,9 @@ public class EnergyPowerUp : MonoBehaviour, ICollectable, IDestructable
         GameObject explosion = Instantiate(explosionFx, transform.position, transform.rotation);
         Destroy(gameObject);
     }
+
+    public void checkAlive()
+    {
+        throw new System.NotImplementedException();
+    }
 }

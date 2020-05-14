@@ -33,4 +33,9 @@ public class TestTarget : MonoBehaviour, IHitable, IDestructable
     {
         throw new System.NotImplementedException();
     }
+
+    public void checkAlive()
+    {
+        throw new System.NotImplementedException();
+    }
 }

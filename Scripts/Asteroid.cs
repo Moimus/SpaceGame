@@ -31,6 +31,11 @@ public class Asteroid : MonoBehaviour, IHitable, IDestructable
 
     public void onHit(int damage)
     {
+        onDestroy();
+    }
+
+    public void checkAlive()
+    {
         throw new System.NotImplementedException();
     }
 }

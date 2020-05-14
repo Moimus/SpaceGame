@@ -19,7 +19,6 @@ public class Ship : Entity, IHitable, IDestructable
 
     [Header("ControlVariables")]
     //ControlVariables
-    public float speedCurrent = 0f;
     public float speedMax = 3f;
     public float acceleration = 1f;
     public float deceleration = 1f;
@@ -44,9 +43,6 @@ public class Ship : Entity, IHitable, IDestructable
     [Header("Sheet")]
     //Sheet
     public Player player;
-    public bool alive = true;
-    public int hpMax = 10;
-    public int hpCurrent;
     public float energyMax = 100f;
     public float energyCurrent;
     public float energyRechargeRate = 10.0f; //how much energy is recharged per second
@@ -320,7 +316,7 @@ public class Ship : Entity, IHitable, IDestructable
     }
 
     //called by onhit(...), checks if the player has more than 0 HP and destroys the player otherwise(calls IDestructable.onDestroy())
-    protected void checkAlive()
+    public void checkAlive()
     {
         if(hpCurrent <= 0)
         {

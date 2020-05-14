@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2444096786315561816}
   - component: {fileID: 1706992674111076682}
+  - component: {fileID: 7163243511835106710}
   m_Layer: 0
   m_Name: turretA
   m_TagString: Untagged
@@ -48,6 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 3
+  alive: 1
+  hpMax: 10
+  hpCurrent: 10
+  speedCurrent: 0
   rotatorLeftRight: {fileID: 7246742450173255386}
   rotatorUpDown: {fileID: 7246742450895637528}
   weapons:
@@ -55,7 +60,27 @@ MonoBehaviour:
   - {fileID: 170551868742584257}
   target: {fileID: 0}
   rotationSpeed: 200
-  fireCooldown: 0.5
+  fireCooldown: 0.3
+  targetOffsetInterval: 0.3
+  targetOffsetUp: 0
+  targetOffsetForward: 0
+  targetOffsetStep: 2
+  targetOffsetMax: 0
+  explosionFx: {fileID: 8438263367070403207, guid: 01b80a19eb24be646ad08e423cfda189,
+    type: 3}
+--- !u!65 &7163243511835106710
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706992674111076683}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.79, y: 1.8569866, z: 3.79}
+  m_Center: {x: 0, y: 0.42849332, z: 0}
 --- !u!1 &3848616122001381396
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +776,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1706992674111076682}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
 --- !u!4 &8702658772166939207 stripped
@@ -853,6 +883,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun
       objectReference: {fileID: 0}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1706992674111076682}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
 --- !u!114 &170551869058292546 stripped

@@ -20,24 +20,49 @@ public class TurretScanner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<Entity>() != null)
+        try
         {
-            Entity entity = other.GetComponent<Entity>();
-            if (entity.faction != owner.faction && owner.target == null)
+            if (other.GetComponent<Entity>() != null)
             {
-                owner.target = entity;
+                Entity entity = other.GetComponent<Entity>();
+                if (entity.faction != owner.faction && owner.target == null)
+                {
+                    owner.target = entity;
+                    owner.targetOffsetMax = owner.target.speedCurrent * 1.5f;
+                }
             }
         }
+        catch(System.Exception)
+        {
+
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.GetComponent<Entity>() != null)
+        try
         {
-            if(other.GetComponent<Entity>() == owner.target)
+            if (other != null)
+            {
+                if (other.GetComponent<Entity>() != null)
+                {
+                    if (other.GetComponent<Entity>() == owner.target)
+                    {
+                        owner.target = null;
+                    }
+                }
+            }
+            else
             {
                 owner.target = null;
             }
         }
+        catch(System.Exception)
+        {
+
+        }
+
+
     }
 }

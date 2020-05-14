@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float speed = 30f;
     public Transform owner; //TODO
     public int damage = 1;
+    public int faction = 0;
     Ship ownerShip;
 
     // Start is called before the first frame update
@@ -28,7 +29,10 @@ public class Projectile : MonoBehaviour
         if(owner != null)
         {
             ownerShip = owner.GetComponent<Ship>();
-            speed += ownerShip.speedCurrent;
+            if(ownerShip != null)
+            {
+                speed += ownerShip.speedCurrent;
+            }
         }
     }
 
@@ -38,14 +42,23 @@ public class Projectile : MonoBehaviour
         {
             if(other.GetComponent<IHitable>() != null)
             {
-                other.GetComponent<IHitable>().onHit();
-                if(other.GetComponent<Ship>() != null)
+
+                if(other.GetComponent<Entity>() != null)
                 {
-                    other.GetComponent<Ship>().onHit(damage);
+                    if(faction == other.gameObject.GetComponent<Entity>().faction)
+                    {
+                        Destroy(gameObject);
+                        return;
+                    }
+                }
+                other.GetComponent<IHitable>().onHit(damage);
+                if (ownerShip != null)
+                {
                     ownerShip.markerUI.spawnHitMarker();
                 }
             }
             Destroy(gameObject);
+            return;
         }
     }
 
