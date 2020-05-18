@@ -234,6 +234,10 @@ public class Ship : Entity, IHitable, IDestructable
         {
             rollSpeedCurrent += Time.deltaTime * rollDeceleration;
         }
+        else if(Math.valueIsBetween(rollSpeedCurrent, -0.01f, 0.01f))
+        {
+
+        }
         else
         {
 
@@ -279,13 +283,16 @@ public class Ship : Entity, IHitable, IDestructable
     //automatically toggles the ships trail
     protected void autoTrail()
     {
-        if(speedCurrent > trailSpeed && !trail.activeInHierarchy)
+        if(trail != null)
         {
-            showTrail();
-        }
-        else if(speedCurrent < trailSpeed && trail.activeInHierarchy)
-        {
-            hideTrail();
+            if (speedCurrent > trailSpeed && !trail.activeInHierarchy)
+            {
+                showTrail();
+            }
+            else if (speedCurrent < trailSpeed && trail.activeInHierarchy)
+            {
+                hideTrail();
+            }
         }
     }
 

@@ -6093,13 +6093,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faction: 2
+  alive: 1
+  hpMax: 10
+  hpCurrent: 10
+  speedCurrent: 0
   hasUI: 1
   ui: {fileID: 1851133314224979938}
   markerUI: {fileID: 5580653640847304077}
   weapons:
   - {fileID: 8904182358110411361}
   - {fileID: 9186496792268689932}
-  speedCurrent: 0
   speedMax: 10
   acceleration: 2
   deceleration: 4
@@ -6110,9 +6114,6 @@ MonoBehaviour:
   yawSensitivity: 0.3
   yawSpeed: 100
   player: {fileID: 0}
-  alive: 1
-  hpMax: 10
-  hpCurrent: 10
   energyMax: 100
   energyCurrent: 0
   energyRechargeRate: 20
@@ -6263,6 +6264,11 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 1851133315828987490}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1851133315828987490}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
 --- !u!4 &425339644128528266 stripped
@@ -6353,6 +6359,11 @@ PrefabInstance:
     - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
         type: 3}
       propertyPath: ship
+      value: 
+      objectReference: {fileID: 1851133315828987490}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: owner
       value: 
       objectReference: {fileID: 1851133315828987490}
     m_RemovedComponents: []
