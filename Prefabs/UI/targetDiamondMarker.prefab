@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1249857858243043170}
   - component: {fileID: 5771107913034883643}
   - component: {fileID: 3382509075767769382}
+  - component: {fileID: 1937514600}
   m_Layer: 9
   m_Name: targetDiamondMarker
   m_TagString: Untagged
@@ -73,3 +74,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1937514600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530156663907858448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d814afead92d534bba27e1c019b6b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiOwner: {fileID: 0}
+  markedObject: {fileID: 0}
+  distanceText: {fileID: 0}
+  uniformScale: 0.5

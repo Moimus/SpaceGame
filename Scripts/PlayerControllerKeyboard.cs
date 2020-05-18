@@ -64,6 +64,11 @@ public class PlayerControllerKeyboard : MonoBehaviour
         {
             ship.setFOV(170);
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            ship.nextTarget();
+        }
     }
 
     void checkMouseInput()

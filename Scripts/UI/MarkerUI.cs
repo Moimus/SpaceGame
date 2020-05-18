@@ -8,6 +8,7 @@ public class MarkerUI : MonoBehaviour
     public GameObject hitMarkerPrefab;
     public GameObject crossHair;
     public Canvas canvas;
+    public GameObject selectedTargetPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,14 @@ public class MarkerUI : MonoBehaviour
     {
         GameObject markerInstance = Instantiate(markerPrefab, canvas.transform);
         markerInstance.GetComponent<Marker>().uiOwner = transform.parent.GetComponent<Ship>();
+        markerInstance.GetComponent<Marker>().markedObject = targetShip.transform;
+        targetShip.relatedMarkers.Add(markerInstance.GetComponent<Marker>());
+    }
+    public void selectTarget(Ship targetShip)
+    {
+        GameObject markerInstance = Instantiate(selectedTargetPrefab, canvas.transform);
+        markerInstance.GetComponent<Marker>().uiOwner = transform.parent.GetComponent<Ship>();
+        markerInstance.GetComponent<Marker>().uiOwner.selectedTargetMarker = markerInstance.GetComponent<Marker>();
         markerInstance.GetComponent<Marker>().markedObject = targetShip.transform;
         targetShip.relatedMarkers.Add(markerInstance.GetComponent<Marker>());
     }

@@ -112,7 +112,7 @@ public class Turret : Entity, IHitable, IDestructable
         Vector3 trajectory = new Vector3(target.transform.position.x, target.transform.position.y + targetOffsetUp, target.transform.position.z); //actual point to aim at
         Quaternion rotQuat = Quaternion.LookRotation(target.transform.position - rotatorUpDown.transform.position);
         Quaternion targetRotation = (Quaternion.Slerp(rotatorUpDown.transform.rotation, rotQuat, step));
-        Debug.Log(rotatorUpDown.transform.rotation.ToString());
+        //Debug.Log(rotatorUpDown.transform.rotation.ToString());
         Quaternion targetAngle = new Quaternion(targetRotation.x ,0 ,0, rotatorUpDown.transform.rotation.w);
         rotatorUpDown.transform.localRotation = targetAngle;
     }

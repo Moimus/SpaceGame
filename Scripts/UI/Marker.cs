@@ -37,7 +37,7 @@ public class Marker : MonoBehaviour
         {
             
             Vector3 targetRelativePos = uiOwner.mainCamera.WorldToScreenPoint(markedObject.position);
-            Debug.Log(targetRelativePos.ToString());
+            //Debug.Log(targetRelativePos.ToString());
             Vector2 localPoint;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), targetRelativePos, uiOwner.mainCamera, out localPoint);
             updateDistanceText();
@@ -63,9 +63,12 @@ public class Marker : MonoBehaviour
 
     void updateDistanceText()
     {
-        float distance = Vector3.Distance(markedObject.position, uiOwner.transform.position) * 10;
-        string distanceString = distance.ToString();
-        string text = distanceString.Substring(0, distanceString.Length - 3);
-        distanceText.text = text;
+        if(distanceText != null)
+        {
+            float distance = Vector3.Distance(markedObject.position, uiOwner.transform.position) * 10;
+            string distanceString = distance.ToString();
+            string text = distanceString.Substring(0, distanceString.Length - 3);
+            distanceText.text = text;
+        }
     }
 }

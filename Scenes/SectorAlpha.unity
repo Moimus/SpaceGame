@@ -15339,6 +15339,7 @@ MonoBehaviour:
     type: 3}
   scannedShips: []
   relatedMarkers: []
+  selectedTargetMarker: {fileID: 0}
 --- !u!114 &1666006255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15633,6 +15634,7 @@ MonoBehaviour:
     type: 3}
   scannedShips: []
   relatedMarkers: []
+  selectedTargetMarker: {fileID: 0}
 --- !u!114 &1729129836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17975,6 +17977,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 741043186, guid: 04c79cb3540be104797df20badbe4244, type: 3}
+      propertyPath: selectedTargetPrefab
+      value: 
+      objectReference: {fileID: 4530156663907858448, guid: 615b59f0aece42c47be033cd3a8cb905,
+        type: 3}
     - target: {fileID: 1971684879, guid: 04c79cb3540be104797df20badbe4244, type: 3}
       propertyPath: owner
       value: 
@@ -18246,6 +18253,7 @@ MonoBehaviour:
   scanPrefab: {fileID: 0}
   scannedShips: []
   relatedMarkers: []
+  selectedTargetMarker: {fileID: 0}
 --- !u!4 &678948674223415227
 Transform:
   m_ObjectHideFlags: 0
@@ -21496,6 +21504,7 @@ MonoBehaviour:
     type: 3}
   scannedShips: []
   relatedMarkers: []
+  selectedTargetMarker: {fileID: 0}
 --- !u!1001 &8218066812069821691
 PrefabInstance:
   m_ObjectHideFlags: 0
