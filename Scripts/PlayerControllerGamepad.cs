@@ -103,6 +103,12 @@ public class PlayerControllerGamepad : MonoBehaviour
             ship.scan();
         }
 
+        if(Input.GetButtonDown("P1RBbutton"))
+        {
+            //Debug.Log("RB-Button down");
+            ship.nextTarget();
+        }
+
         yield return null;
     }
 }

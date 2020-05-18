@@ -276,6 +276,7 @@ public class Ship : Entity, IHitable, IDestructable
     }
     public void nextTarget()
     {
+        Debug.Log("nextTarget");
         if (scannedShips.Count > 0)
         {
             if (selectedTargetMarker != null)
@@ -293,8 +294,6 @@ public class Ship : Entity, IHitable, IDestructable
             }
             markerUI.selectTarget(scannedShips[selectedTargetPointer]);
         }
-        Debug.Log("TP " + selectedTargetPointer);
-        Debug.Log("scannedShips.Count" + scannedShips.Count);
     }
 
 
