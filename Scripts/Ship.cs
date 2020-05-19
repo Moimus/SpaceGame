@@ -61,7 +61,7 @@ public class Ship : Entity, IHitable, IDestructable
     public GameObject scanPrefab;
     public List<Ship> scannedShips = new List<Ship>();
     public List<Marker> relatedMarkers = new List<Marker>(); // list of markers that mark this ship on other UIs
-    private int selectedTargetPointer = 0;
+    public int selectedTargetPointer = 0;
     public Marker selectedTargetMarker;
 
 
@@ -276,9 +276,14 @@ public class Ship : Entity, IHitable, IDestructable
     }
     public void nextTarget()
     {
-        Debug.Log("nextTarget");
+        //Debug.Log("nextTarget");
         if (scannedShips.Count > 0)
         {
+            if(selectedTargetPointer == -1)
+            {
+                selectedTargetPointer = 0;
+            }
+
             if (selectedTargetMarker != null)
             {
                 Destroy(selectedTargetMarker.gameObject);

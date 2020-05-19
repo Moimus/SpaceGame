@@ -15,4 +15,21 @@ public class SelectedTargetMarker : Marker
     {
         
     }
+
+    public override IEnumerator onDestroy()
+    {
+        try
+        {
+            //uiOwner.scannedShips.Remove(markedObject.GetComponent<Ship>());
+            uiOwner.selectedTargetPointer = -1;
+            StopCoroutine(lifeCycle());
+            Destroy(gameObject);
+        }
+        catch (MissingReferenceException)
+        {
+
+        }
+
+        yield return null;
+    }
 }

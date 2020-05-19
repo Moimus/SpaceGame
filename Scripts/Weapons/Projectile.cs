@@ -8,25 +8,26 @@ public class Projectile : MonoBehaviour
     public Transform owner; //TODO
     public int damage = 1;
     public int faction = 0;
-    Ship ownerShip;
+    public float lifeTime = 2f;
+    protected Ship ownerShip;
 
     // Start is called before the first frame update
     void Start()
     {
         init();
-        Destroy(gameObject, 2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        moveForward();
     }
 
     //TODO
     protected virtual void init()
     {
-        if(owner != null)
+        Destroy(gameObject, lifeTime);
+        if (owner != null)
         {
             ownerShip = owner.GetComponent<Ship>();
             if(ownerShip != null)
@@ -60,6 +61,11 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
+
+    protected virtual void moveForward()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 
 

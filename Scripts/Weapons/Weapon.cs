@@ -20,7 +20,8 @@ public class Weapon : MonoBehaviour
     {
         
     }
-    public void fire()
+
+    public virtual void fire()
     {
         Ship ship;
         ship = owner as Ship;
