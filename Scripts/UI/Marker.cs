@@ -55,9 +55,17 @@ public class Marker : MonoBehaviour
 
     public virtual IEnumerator onDestroy()
     {
-        uiOwner.scannedShips.Remove(markedObject.GetComponent<Ship>());
-        StopCoroutine(lifeCycle());
-        Destroy(gameObject);
+        try
+        {
+            uiOwner.scannedShips.Remove(markedObject.GetComponent<Ship>());
+            StopCoroutine(lifeCycle());
+            Destroy(gameObject);
+        }
+        catch(MissingReferenceException)
+        {
+
+        }
+
         yield return null;
     }
 
