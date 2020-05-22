@@ -20,7 +20,10 @@ public class PlayerControllerGamepad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(checkInput());
+        if(!ship.overrideControls)
+        {
+            StartCoroutine(checkInput());
+        }
     }
 
     IEnumerator checkInput()

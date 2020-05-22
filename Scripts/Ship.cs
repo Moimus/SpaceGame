@@ -11,14 +11,12 @@ public class Ship : Entity, IHitable, IDestructable
 
     [Header("Weapons")]
     //Weapons
-    public Weapon[] weapons;
-    /*
-    public GameObject bulletSpawner;
-    public GameObject projectile;
-    */
+    public List<Weapon> weapons;
+    public GameObject[] weaponMounts;
 
     [Header("ControlVariables")]
     //ControlVariables
+    public bool overrideControls = false;
     public float speedMax = 3f;
     public float acceleration = 1f;
     public float deceleration = 1f;
@@ -446,4 +444,20 @@ public class Ship : Entity, IHitable, IDestructable
         transform.rotation = Quaternion.Slerp(transform.rotation, rotQuat, step);
     }
 
+    //customizer functions
+    public void turnOnCustomize()
+    {
+        ui.gameObject.SetActive(false);
+        markerUI.gameObject.SetActive(false);
+        mainCamera.gameObject.SetActive(false);
+        overrideControls = true;
+    }
+
+    public void turnOffCustomize()
+    {
+        ui.gameObject.SetActive(true);
+        markerUI.gameObject.SetActive(true);
+        mainCamera.gameObject.SetActive(true);
+        overrideControls = false;
+    }
 }

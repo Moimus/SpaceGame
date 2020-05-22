@@ -279,7 +279,7 @@ MonoBehaviour:
   faction: 0
   lifeTime: 10
   target: {fileID: 0}
-  yawSpeed: 300
+  yawSpeed: 400
   trail: {fileID: 5235263822826147807}
   explosionFx: {fileID: 8438263367070403207, guid: 01b80a19eb24be646ad08e423cfda189,
     type: 3}

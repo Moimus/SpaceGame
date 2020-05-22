@@ -21,6 +21,11 @@ public class Weapon : MonoBehaviour
         
     }
 
+    public virtual void init(Entity owner)
+    {
+        this.owner = owner;
+    }
+
     public virtual void fire()
     {
         Ship ship;
@@ -55,5 +60,19 @@ public class Weapon : MonoBehaviour
             p.transform.rotation = bulletSpawner.transform.rotation;
         }
     }
-    
+
+    public virtual void detachWeapon()
+    {
+        Ship ship = owner as Ship;
+        ship.weapons.Remove(this);
+        Destroy(gameObject);
+    }
+
+    public virtual void attachWeapon()
+    {
+        Ship ship = owner as Ship;
+        ship.weapons.Add(this);
+    }
+
+
 }

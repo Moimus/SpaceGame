@@ -16,8 +16,11 @@ public class PlayerControllerKeyboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        checkMouseInput();
-        checkKeyboardInput();
+        if(!ship.overrideControls)
+        {
+            checkMouseInput();
+            checkKeyboardInput();
+        }
     }
 
 
