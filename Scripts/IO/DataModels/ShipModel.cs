@@ -8,7 +8,7 @@ public class ShipModel : Model
 {
     public List<string> weaponPrefabPaths = new List<string>();
 
-    public ShipModel(string prefabPath, List<string> weaponPrefabPaths) : base(prefabPath)
+    public ShipModel(string prefabPath, string displayName, List<string> weaponPrefabPaths) : base(prefabPath, displayName)
     {
         this.weaponPrefabPaths = weaponPrefabPaths;
     }
@@ -21,7 +21,7 @@ public class ShipModel : Model
         {
             Directory.CreateDirectory(Application.persistentDataPath + Model.DataFolder);
         }
-        System.IO.File.WriteAllText(Application.persistentDataPath + Model.DataFolder + "/" + fileName + Model.FileExtension, toJSON());
+        System.IO.File.WriteAllText(Application.persistentDataPath + Model.DataFolder + "/" + name + "_" + fileName + Model.FileExtension, toJSON());
     }
 
     public static ShipModel import(string fileName)

@@ -41,6 +41,7 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
     [Header("Sheet")]
     //Sheet
     public Player player;
+    public string displayName = "Ship";
     public float energyMax = 100f;
     public float energyCurrent;
     public float energyRechargeRate = 10.0f; //how much energy is recharged per second
@@ -495,7 +496,7 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
             }
         }
 
-        Model model = new ShipModel(prefabPath, weponPrefabPaths);
+        Model model = new ShipModel(prefabPath, displayName, weponPrefabPaths);
 
         return model;
     }
@@ -516,12 +517,19 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
             {
                 weaponMounts[n].GetComponentInChildren<Weapon>().detachWeapon();
             }
-            GameObject weapon = Instantiate(Resources.Load(importedModel.weaponPrefabPaths[n]) as GameObject, weaponMounts[n].transform);
-            weapon.transform.position = weaponMounts[n].transform.position;
-            weapon.transform.rotation = weaponMounts[n].transform.rotation;
-            Weapon weaponComponent = weapon.GetComponent<Weapon>();
-            weaponComponent.owner = this;
-            weaponComponent.attachWeapon();
+        }
+
+        if (importedModel.weaponPrefabPaths.Count > 0)
+        {
+            for (int n = 0; n < weaponMounts.Length && n < importedModel.weaponPrefabPaths.Count; n++)
+            {
+                GameObject weapon = Instantiate(Resources.Load(importedModel.weaponPrefabPaths[n]) as GameObject, weaponMounts[n].transform);
+                weapon.transform.position = weaponMounts[n].transform.position;
+                weapon.transform.rotation = weaponMounts[n].transform.rotation;
+                Weapon weaponComponent = weapon.GetComponent<Weapon>();
+                weaponComponent.owner = this;
+                weaponComponent.attachWeapon();
+            }
         }
     }
 }

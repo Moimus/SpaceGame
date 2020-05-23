@@ -10,6 +10,7 @@ public class Customizer : MonoBehaviour
     public Canvas uiCanvas;
     public Camera mainCamera;
     public InputField inputField;
+    public Dropdown configurationDropdown;
 
     [Header("Attributes - Runtime")]
     public WeaponMountButton selectedWeaponMount;
@@ -24,6 +25,7 @@ public class Customizer : MonoBehaviour
     void Start()
     {
         init();
+        //loadConfigurations();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class Customizer : MonoBehaviour
     {
         initButtons();
         ship.turnOnCustomize();
+        populateConfigurationDropdown();
     }
 
     public void initButtons()
@@ -49,14 +52,49 @@ public class Customizer : MonoBehaviour
         }
     }
 
+    public List<string> loadConfigurationNames()
+    {
+        string[] configNames = System.IO.Directory.GetFiles(Application.persistentDataPath + Model.DataFolder + "/");
+        List<string> filteredList = new List<string>();
+        foreach(string s in configNames)
+        {
+            filteredList.Add(System.IO.Path.GetFileName(s));
+        }
+
+        for(int n = 0; n < filteredList.Count; n++)
+        {
+            string prefix = filteredList[n].Split("_".ToCharArray())[0];
+            if (prefix != ship.displayName)
+            {
+                filteredList.Remove(filteredList[n]);
+            }
+        }
+
+        for(int n = 0; n < filteredList.Count; n++)
+        {
+            filteredList[n] = filteredList[n].Split(".".ToCharArray())[0];
+            filteredList[n] = filteredList[n].Split("_".ToCharArray())[1];
+        }
+
+        return filteredList;
+    }
+
+    public void populateConfigurationDropdown()
+    {
+        configurationDropdown.ClearOptions();
+        List<string> optionsList = loadConfigurationNames();
+        configurationDropdown.AddOptions(optionsList);
+    }
+
     public void saveConfiguration()
     {
         ship.toModel().export(inputField.text);
+        populateConfigurationDropdown();
     }
 
     public void loadConfiguration()
     {
-        ShipModel model = ShipModel.import("TestB");
+        ShipModel model = ShipModel.import(ship.displayName + "_" + configurationDropdown.options[configurationDropdown.value].text);
         ship.fromModel(model);
         Debug.Log("imported: " + model.toJSON());
     }
