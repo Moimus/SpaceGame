@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customizer : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Customizer : MonoBehaviour
     public Ship ship;
     public Canvas uiCanvas;
     public Camera mainCamera;
+    public InputField inputField;
 
     [Header("Attributes - Runtime")]
     public WeaponMountButton selectedWeaponMount;
@@ -45,5 +47,10 @@ public class Customizer : MonoBehaviour
             btn.init(this, n);
 
         }
+    }
+
+    public void saveConfiguration()
+    {
+        ship.toModel().export(inputField.text);
     }
 }

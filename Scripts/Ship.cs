@@ -74,7 +74,7 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
         energyCurrent = energyMax;
         fuelCurrent = fuelMax;
         ShipModel m = toModel() as ShipModel;
-        m.export("testExport");
+        //m.export("testExport");
         //Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
         //Debug.Log(Screen.width);
         //Debug.Log(Screen.height);
