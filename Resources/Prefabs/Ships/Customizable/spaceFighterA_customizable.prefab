@@ -6111,9 +6111,7 @@ MonoBehaviour:
   hasUI: 1
   ui: {fileID: 1723146812498391186}
   markerUI: {fileID: 1513361297352066581}
-  weapons:
-  - {fileID: 0}
-  - {fileID: 0}
+  weapons: []
   weaponMounts:
   - {fileID: 8637546541283973542}
   - {fileID: 2002495955536281859}

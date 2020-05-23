@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletSpawner;
     public GameObject projectile;
     public float energyConsumption = 5f;
+    public bool active = false;
 
     [Header("DataModel")]
     public string prefabPath;
@@ -31,36 +32,39 @@ public class Weapon : MonoBehaviour
 
     public virtual void fire()
     {
-        Ship ship;
-        ship = owner as Ship;
-        if(owner != null)
+        if(active)
         {
-            if (ship != null && ship.energyCurrent > 0)
+            Ship ship;
+            ship = owner as Ship;
+            if (owner != null)
             {
-                GameObject p = Instantiate(projectile);
-                p.GetComponent<Projectile>().owner = ship.gameObject.transform;
-                p.GetComponent<Projectile>().faction = owner.faction;
-                p.transform.position = bulletSpawner.transform.position;
-                p.transform.rotation = bulletSpawner.transform.rotation;
-                if(ship != null)
+                if (ship != null && ship.energyCurrent > 0)
                 {
-                    ship.energyCurrent -= energyConsumption;
+                    GameObject p = Instantiate(projectile);
+                    p.GetComponent<Projectile>().owner = ship.gameObject.transform;
+                    p.GetComponent<Projectile>().faction = owner.faction;
+                    p.transform.position = bulletSpawner.transform.position;
+                    p.transform.rotation = bulletSpawner.transform.rotation;
+                    if (ship != null)
+                    {
+                        ship.energyCurrent -= energyConsumption;
+                    }
+                }
+                else if (ship == null)
+                {
+                    GameObject p = Instantiate(projectile);
+                    p.GetComponent<Projectile>().owner = owner.gameObject.transform;
+                    p.GetComponent<Projectile>().faction = owner.faction;
+                    p.transform.position = bulletSpawner.transform.position;
+                    p.transform.rotation = bulletSpawner.transform.rotation;
                 }
             }
-            else if(ship == null)
+            else
             {
                 GameObject p = Instantiate(projectile);
-                p.GetComponent<Projectile>().owner = owner.gameObject.transform;
-                p.GetComponent<Projectile>().faction = owner.faction;
                 p.transform.position = bulletSpawner.transform.position;
                 p.transform.rotation = bulletSpawner.transform.rotation;
             }
-        }
-        else
-        {
-            GameObject p = Instantiate(projectile);
-            p.transform.position = bulletSpawner.transform.position;
-            p.transform.rotation = bulletSpawner.transform.rotation;
         }
     }
 

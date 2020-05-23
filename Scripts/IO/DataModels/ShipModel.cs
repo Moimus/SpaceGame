@@ -23,4 +23,11 @@ public class ShipModel : Model
         }
         System.IO.File.WriteAllText(Application.persistentDataPath + Model.DataFolder + "/" + fileName + Model.FileExtension, toJSON());
     }
+
+    public static ShipModel import(string fileName)
+    {
+        string jsonFromFile = System.IO.File.ReadAllText(Application.persistentDataPath + Model.DataFolder + "/" + fileName + Model.FileExtension);
+        ShipModel model = JsonUtility.FromJson<ShipModel>(jsonFromFile);
+        return model;
+    }
 }

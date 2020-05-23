@@ -5294,6 +5294,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!4 &130867926
 Transform:
   m_ObjectHideFlags: 0
@@ -5462,6 +5464,7 @@ MonoBehaviour:
   relatedMarkers: []
   selectedTargetPointer: 0
   selectedTargetMarker: {fileID: 0}
+  prefabPath: 
 --- !u!114 &153368755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11498,6 +11501,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!4 &479818207
 Transform:
   m_ObjectHideFlags: 0
@@ -18952,6 +18957,11 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1706992675325149976}
+    - target: {fileID: 6403607314539309612, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6403607314539309613, guid: 6ccd37457ff6010459a66c64e9ed31dd,
         type: 3}
       propertyPath: m_Name
@@ -19183,6 +19193,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!4 &1315963481
 Transform:
   m_ObjectHideFlags: 0
@@ -19835,6 +19847,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!4 &1391774161
 Transform:
   m_ObjectHideFlags: 0
@@ -25321,6 +25335,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!4 &1518610528
 Transform:
   m_ObjectHideFlags: 0
@@ -25371,6 +25387,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!4 &1528291889
 Transform:
   m_ObjectHideFlags: 0
@@ -26118,6 +26136,7 @@ MonoBehaviour:
   relatedMarkers: []
   selectedTargetPointer: 0
   selectedTargetMarker: {fileID: 0}
+  prefabPath: 
 --- !u!114 &1666006255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26423,6 +26442,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!4 &1701198897
 Transform:
   m_ObjectHideFlags: 0
@@ -26597,6 +26618,7 @@ MonoBehaviour:
   relatedMarkers: []
   selectedTargetPointer: 0
   selectedTargetMarker: {fileID: 0}
+  prefabPath: 
 --- !u!114 &1729129836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27833,6 +27855,7 @@ MonoBehaviour:
   relatedMarkers: []
   selectedTargetPointer: 0
   selectedTargetMarker: {fileID: 0}
+  prefabPath: 
 --- !u!114 &1959945651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28519,6 +28542,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!4 &2026670438
 Transform:
   m_ObjectHideFlags: 0
@@ -29674,6 +29699,7 @@ MonoBehaviour:
   relatedMarkers: []
   selectedTargetPointer: 0
   selectedTargetMarker: {fileID: 0}
+  prefabPath: 
 --- !u!65 &478180367559429676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33132,6 +33158,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!1 &8134946546654994939
 GameObject:
   m_ObjectHideFlags: 0
@@ -33212,6 +33240,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 0
+  prefabPath: 
 --- !u!1 &8134946548044693417
 GameObject:
   m_ObjectHideFlags: 0
@@ -33554,6 +33584,7 @@ MonoBehaviour:
   relatedMarkers: []
   selectedTargetPointer: 0
   selectedTargetMarker: {fileID: 0}
+  prefabPath: 
 --- !u!1001 &8218066812069821691
 PrefabInstance:
   m_ObjectHideFlags: 0

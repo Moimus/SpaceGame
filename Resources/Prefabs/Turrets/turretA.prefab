@@ -782,6 +782,11 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1706992674111076682}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
 --- !u!4 &8702658772166939207 stripped
@@ -889,6 +894,11 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1706992674111076682}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
 --- !u!114 &170551869058292546 stripped

@@ -18,54 +18,60 @@ public class WeaponMissileLauncher : Weapon
     // Update is called once per frame
     void Update()
     {
-        checkForLockOn();
-        cooldownWeapon();
+        if(active)
+        {
+            checkForLockOn();
+            cooldownWeapon();
+        }
     }
 
     public override void fire()
     {
-        if(fireCooldownRemaining <= 0)
+        if(active)
         {
-            Ship ship;
-            ship = owner as Ship;
-            if (owner != null)
+            if (fireCooldownRemaining <= 0)
             {
-                if (ship != null && ship.energyCurrent > 0)
+                Ship ship;
+                ship = owner as Ship;
+                if (owner != null)
                 {
-                    GameObject p = Instantiate(projectile);
-                    MissileProjectile missileComponent = p.GetComponent<MissileProjectile>();
-                    missileComponent.owner = ship.gameObject.transform;
-                    missileComponent.faction = owner.faction;
-                    if (ship.selectedTargetPointer != -1)
+                    if (ship != null && ship.energyCurrent > 0)
                     {
+                        GameObject p = Instantiate(projectile);
+                        MissileProjectile missileComponent = p.GetComponent<MissileProjectile>();
+                        missileComponent.owner = ship.gameObject.transform;
+                        missileComponent.faction = owner.faction;
+                        if (ship.selectedTargetPointer != -1)
+                        {
+                            missileComponent.target = target;
+                        }
+                        p.transform.position = bulletSpawner.transform.position;
+                        p.transform.rotation = bulletSpawner.transform.rotation;
+                        if (ship != null)
+                        {
+                            ship.energyCurrent -= energyConsumption;
+                        }
+                    }
+                    else if (ship == null)
+                    {
+                        GameObject p = Instantiate(projectile);
+                        MissileProjectile missileComponent = p.GetComponent<MissileProjectile>();
+                        missileComponent.owner = owner.gameObject.transform;
+                        missileComponent.faction = owner.faction;
                         missileComponent.target = target;
-                    }
-                    p.transform.position = bulletSpawner.transform.position;
-                    p.transform.rotation = bulletSpawner.transform.rotation;
-                    if (ship != null)
-                    {
-                        ship.energyCurrent -= energyConsumption;
+                        p.transform.position = bulletSpawner.transform.position;
+                        p.transform.rotation = bulletSpawner.transform.rotation;
                     }
                 }
-                else if (ship == null)
+                else
                 {
                     GameObject p = Instantiate(projectile);
-                    MissileProjectile missileComponent = p.GetComponent<MissileProjectile>();
-                    missileComponent.owner = owner.gameObject.transform;
-                    missileComponent.faction = owner.faction;
-                    missileComponent.target = target;
                     p.transform.position = bulletSpawner.transform.position;
                     p.transform.rotation = bulletSpawner.transform.rotation;
                 }
+                fireCooldownRemaining = fireCooldown;
+                missileObject.SetActive(false);
             }
-            else
-            {
-                GameObject p = Instantiate(projectile);
-                p.transform.position = bulletSpawner.transform.position;
-                p.transform.rotation = bulletSpawner.transform.rotation;
-            }
-            fireCooldownRemaining = fireCooldown;
-            missileObject.SetActive(false);
         }
     }
 

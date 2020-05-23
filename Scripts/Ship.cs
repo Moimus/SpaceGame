@@ -73,7 +73,7 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
         hpCurrent = hpMax;
         energyCurrent = energyMax;
         fuelCurrent = fuelMax;
-        ShipModel m = toModel() as ShipModel;
+        //ShipModel m = toModel() as ShipModel;
         //m.export("testExport");
         //Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
         //Debug.Log(Screen.width);
@@ -245,6 +245,17 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
         else
         {
 
+        }
+    }
+
+    public void activateWeapons()
+    {
+        if(weapons != null)
+        {
+            foreach (Weapon w in weapons)
+            {
+                w.active = true;
+            }
         }
     }
     
@@ -487,5 +498,30 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
         Model model = new ShipModel(prefabPath, weponPrefabPaths);
 
         return model;
+    }
+
+    void removeAllweapons()
+    {
+        for(int n = 0; n < weapons.Count; n++)
+        {
+            weapons[n].detachWeapon();
+        }
+    }
+
+    public void fromModel(ShipModel importedModel)
+    {
+        for (int n = 0; n < weaponMounts.Length; n++)
+        {
+            if (weaponMounts[n].GetComponentInChildren<Weapon>() != null)
+            {
+                weaponMounts[n].GetComponentInChildren<Weapon>().detachWeapon();
+            }
+            GameObject weapon = Instantiate(Resources.Load(importedModel.weaponPrefabPaths[n]) as GameObject, weaponMounts[n].transform);
+            weapon.transform.position = weaponMounts[n].transform.position;
+            weapon.transform.rotation = weaponMounts[n].transform.rotation;
+            Weapon weaponComponent = weapon.GetComponent<Weapon>();
+            weaponComponent.owner = this;
+            weaponComponent.attachWeapon();
+        }
     }
 }

@@ -53,4 +53,11 @@ public class Customizer : MonoBehaviour
     {
         ship.toModel().export(inputField.text);
     }
+
+    public void loadConfiguration()
+    {
+        ShipModel model = ShipModel.import("TestB");
+        ship.fromModel(model);
+        Debug.Log("imported: " + model.toJSON());
+    }
 }

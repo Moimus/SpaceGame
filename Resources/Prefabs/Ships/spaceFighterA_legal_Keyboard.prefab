@@ -80,6 +80,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 1
+  prefabPath: 
 --- !u!1 &741043184
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +214,8 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  active: 1
+  prefabPath: 
 --- !u!1 &2013104027
 GameObject:
   m_ObjectHideFlags: 0
@@ -6515,6 +6519,7 @@ MonoBehaviour:
   relatedMarkers: []
   selectedTargetPointer: 0
   selectedTargetMarker: {fileID: 0}
+  prefabPath: 
 --- !u!1001 &209790054979459853
 PrefabInstance:
   m_ObjectHideFlags: 0
