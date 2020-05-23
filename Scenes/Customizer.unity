@@ -122,6 +122,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &90656633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1723146812542021906, guid: 3076bacad180cc344bbcde323112f1a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 252358462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &148011386 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7907520369122550830, guid: 7fa9cc68e77b9e74db69033e6c97a5ba,
@@ -243,6 +255,75 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1001 &252358462
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000041723246
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950218468681965835, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262113717437272856, guid: 3076bacad180cc344bbcde323112f1a5,
+        type: 3}
+      propertyPath: m_Name
+      value: spaceFighterA_customizable
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3076bacad180cc344bbcde323112f1a5, type: 3}
 --- !u!1 &343832011
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43449746dfbd89f4ba0ac8ef00d8c56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 1346555404}
+  ship: {fileID: 90656633}
   uiCanvas: {fileID: 343832012}
   mainCamera: {fileID: 230821385}
   selectedWeaponMount: {fileID: 0}
@@ -479,18 +560,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15944a86829942c408709e9d28f981fe, type: 3}
---- !u!114 &1346555404 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 209790055445437685, guid: 04c79cb3540be104797df20badbe4244,
-    type: 3}
-  m_PrefabInstance: {fileID: 1748389596}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1430357470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -761,6 +830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: spaceFighterA_legal_Keyboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199014123758092031, guid: 04c79cb3540be104797df20badbe4244,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c79cb3540be104797df20badbe4244, type: 3}

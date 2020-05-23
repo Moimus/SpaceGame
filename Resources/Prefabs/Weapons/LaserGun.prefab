@@ -50,6 +50,7 @@ MonoBehaviour:
   projectile: {fileID: 182955710708052567, guid: 214a33bddefaa4049bae427255578c3b,
     type: 3}
   energyConsumption: 5
+  prefabPath: Prefabs/Weapons/LaserGun
 --- !u!1 &8494929642311300089
 GameObject:
   m_ObjectHideFlags: 0

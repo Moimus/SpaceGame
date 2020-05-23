@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : Entity, IHitable, IDestructable
+public class Ship : Entity, IHitable, IDestructable, IExportable
 {
     [Header("UI")]
     public bool hasUI = false;
@@ -62,6 +62,8 @@ public class Ship : Entity, IHitable, IDestructable
     public int selectedTargetPointer = 0;
     public Marker selectedTargetMarker;
 
+    [Header("DataModel")]
+    public string prefabPath;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +73,8 @@ public class Ship : Entity, IHitable, IDestructable
         hpCurrent = hpMax;
         energyCurrent = energyMax;
         fuelCurrent = fuelMax;
-
+        ShipModel m = toModel() as ShipModel;
+        m.export("testExport");
         //Debug.Log(mainCamera.WorldToScreenPoint(transform.position));
         //Debug.Log(Screen.width);
         //Debug.Log(Screen.height);
@@ -449,7 +452,10 @@ public class Ship : Entity, IHitable, IDestructable
     {
         ui.gameObject.SetActive(false);
         markerUI.gameObject.SetActive(false);
-        mainCamera.gameObject.SetActive(false);
+        if(mainCamera != null)
+        {
+            mainCamera.gameObject.SetActive(false);
+        }
         overrideControls = true;
     }
 
@@ -457,7 +463,29 @@ public class Ship : Entity, IHitable, IDestructable
     {
         ui.gameObject.SetActive(true);
         markerUI.gameObject.SetActive(true);
-        mainCamera.gameObject.SetActive(true);
+        if (mainCamera != null)
+        {
+            mainCamera.gameObject.SetActive(true);
+        }
         overrideControls = false;
+    }
+
+    public Model toModel()
+    {
+        List<string> weponPrefabPaths = new List<string>();
+        if(weapons.Count > 0)
+        {
+            foreach (Weapon w in weapons)
+            {
+                if(w != null)
+                {
+                    weponPrefabPaths.Add(w.prefabPath);
+                }
+            }
+        }
+
+        Model model = new ShipModel(prefabPath, weponPrefabPaths);
+
+        return model;
     }
 }

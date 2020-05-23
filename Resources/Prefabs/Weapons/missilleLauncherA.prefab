@@ -192,6 +192,7 @@ MonoBehaviour:
   projectile: {fileID: 5235263824562571497, guid: ced855e034a0bba46bc7352e561ef31c,
     type: 3}
   energyConsumption: 0
+  prefabPath: Prefabs/Weapons/missilleLauncherA
   missileObject: {fileID: 3170468144647845764}
   target: {fileID: 0}
   fireCooldown: 2.5

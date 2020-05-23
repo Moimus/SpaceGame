@@ -9,6 +9,9 @@ public class Weapon : MonoBehaviour
     public GameObject projectile;
     public float energyConsumption = 5f;
 
+    [Header("DataModel")]
+    public string prefabPath;
+
     // Start is called before the first frame update
     void Start()
     {
