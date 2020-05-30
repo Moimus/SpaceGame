@@ -13,6 +13,9 @@ public class Entity : MonoBehaviour
     [Header("ControlVariables : Entitiy")]
     public float speedCurrent = 0f;
 
+    [Header("ControlVariables : MissileReferences")]
+    public List<MissileProjectile> lockingMissiles = new List<MissileProjectile>(); //list contains all missileprojectiles that are locked on this ship
+
     // Start is called before the first frame update
     void Start()
     {

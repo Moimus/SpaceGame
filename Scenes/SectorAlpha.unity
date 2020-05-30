@@ -5429,6 +5429,7 @@ MonoBehaviour:
   hpMax: 10
   hpCurrent: 10
   speedCurrent: 0
+  lockingMissiles: []
   hasUI: 0
   ui: {fileID: 0}
   markerUI: {fileID: 0}
@@ -5447,11 +5448,13 @@ MonoBehaviour:
   yawSensitivity: 0.3
   yawSpeed: 100
   player: {fileID: 0}
+  displayName: Ship
   energyMax: 100
   energyCurrent: 0
   energyRechargeRate: 20
   fuelMax: 100
   fuelCurrent: 0
+  mountedSystem: {fileID: 0}
   trail: {fileID: 535367704}
   trailSpeed: 1
   mainCamera: {fileID: 0}
@@ -16827,6 +16830,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &601121177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6403607314539309612, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1677182060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f713485d313972419a30e495b14c5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &604916121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8633668553946037735, guid: be72fc6dd66f3f140adde7a8d3f54a03,
@@ -18258,6 +18273,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1899780785}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &980914799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980914800}
+  m_Layer: 0
+  m_Name: FlareSpawnerR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &980914800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980914799}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1867170223}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &1006386133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6704456593778874704, guid: aa70bb06e578b4e2ba5c3516d7e51888,
@@ -19813,6 +19858,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be72fc6dd66f3f140adde7a8d3f54a03, type: 3}
+--- !u!4 &1357068830 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5157719157274578156, guid: 04c79cb3540be104797df20badbe4244,
+    type: 3}
+  m_PrefabInstance: {fileID: 209790055167842480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1391774159
 GameObject:
   m_ObjectHideFlags: 0
@@ -25147,6 +25198,36 @@ Transform:
   m_Father: {fileID: 50312850}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1476555077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1476555078}
+  m_Layer: 0
+  m_Name: FlareSpawnerL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1476555078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476555077}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1867170223}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &1476727763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 66c316733c32855458f805a8ebaa9709,
@@ -25591,18 +25672,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 95efa9b85239afd45a85ab980a218e92, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb501bc074f7d28408a3e8d3d1e85eca, type: 3}
---- !u!114 &1571375751 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1971684879, guid: 04c79cb3540be104797df20badbe4244,
-    type: 3}
-  m_PrefabInstance: {fileID: 209790055167842480}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 469dad4f5603fd442b86d727f8a4b80e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1581041976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26101,6 +26170,7 @@ MonoBehaviour:
   hpMax: 10
   hpCurrent: 10
   speedCurrent: 0
+  lockingMissiles: []
   hasUI: 0
   ui: {fileID: 0}
   markerUI: {fileID: 0}
@@ -26119,11 +26189,13 @@ MonoBehaviour:
   yawSensitivity: 0.3
   yawSpeed: 100
   player: {fileID: 0}
+  displayName: Ship
   energyMax: 100
   energyCurrent: 0
   energyRechargeRate: 20
   fuelMax: 100
   fuelCurrent: 0
+  mountedSystem: {fileID: 0}
   trail: {fileID: 476485176}
   trailSpeed: 1
   mainCamera: {fileID: 0}
@@ -26259,6 +26331,85 @@ Transform:
   m_Father: {fileID: 50312850}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1677182060
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1357068830}
+    m_Modifications:
+    - target: {fileID: 6403607314539309612, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1649305252}
+    - target: {fileID: 6403607314539309612, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6403607314539309613, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_Name
+      value: missilleLauncherA
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.395
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1539
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.099
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963902582095845438, guid: 6ccd37457ff6010459a66c64e9ed31dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ccd37457ff6010459a66c64e9ed31dd, type: 3}
 --- !u!4 &1677197308 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1611154315236883941, guid: 9777c88128416c14ab084e17b5bd68f3,
@@ -26583,6 +26734,7 @@ MonoBehaviour:
   hpMax: 10
   hpCurrent: 10
   speedCurrent: 0
+  lockingMissiles: []
   hasUI: 0
   ui: {fileID: 0}
   markerUI: {fileID: 0}
@@ -26601,11 +26753,13 @@ MonoBehaviour:
   yawSensitivity: 0.3
   yawSpeed: 100
   player: {fileID: 0}
+  displayName: Ship
   energyMax: 100
   energyCurrent: 0
   energyRechargeRate: 20
   fuelMax: 100
   fuelCurrent: 0
+  mountedSystem: {fileID: 0}
   trail: {fileID: 1813127060}
   trailSpeed: 1
   mainCamera: {fileID: 0}
@@ -27305,6 +27459,58 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 271408056}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1867170222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867170223}
+  - component: {fileID: 1867170224}
+  m_Layer: 0
+  m_Name: FlareSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1867170223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867170222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.115, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1476555078}
+  - {fileID: 980914800}
+  m_Father: {fileID: 1357068830}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1867170224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867170222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297ef78806f534d4db3011ad88ca9fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flareSpawners:
+  - {fileID: 1476555077}
+  - {fileID: 980914799}
+  flareProjectilePrefab: {fileID: 3037373265433677549, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+    type: 3}
+  owner: {fileID: 1649305252}
+  fireDelay: 0.5
 --- !u!4 &1876720789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2444096786315561816, guid: a2c6067dce86bbb4688dc675424fa2b9,
@@ -27820,6 +28026,7 @@ MonoBehaviour:
   hpMax: 10
   hpCurrent: 10
   speedCurrent: 0
+  lockingMissiles: []
   hasUI: 0
   ui: {fileID: 0}
   markerUI: {fileID: 0}
@@ -27838,11 +28045,13 @@ MonoBehaviour:
   yawSensitivity: 0.3
   yawSpeed: 100
   player: {fileID: 0}
+  displayName: Ship
   energyMax: 100
   energyCurrent: 0
   energyRechargeRate: 20
   fuelMax: 100
   fuelCurrent: 0
+  mountedSystem: {fileID: 0}
   trail: {fileID: 1693046952}
   trailSpeed: 1
   mainCamera: {fileID: 0}
@@ -29410,7 +29619,17 @@ PrefabInstance:
         type: 3}
       propertyPath: weapons.Array.data[0]
       value: 
-      objectReference: {fileID: 1571375751}
+      objectReference: {fileID: 601121177}
+    - target: {fileID: 209790055445437685, guid: 04c79cb3540be104797df20badbe4244,
+        type: 3}
+      propertyPath: selectedTargetPointer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209790055445437685, guid: 04c79cb3540be104797df20badbe4244,
+        type: 3}
+      propertyPath: mountedSystem
+      value: 
+      objectReference: {fileID: 1867170224}
     - target: {fileID: 209790055982658564, guid: 04c79cb3540be104797df20badbe4244,
         type: 3}
       propertyPath: m_Camera
@@ -29667,6 +29886,7 @@ MonoBehaviour:
   hpMax: 1000
   hpCurrent: 1000
   speedCurrent: 0
+  lockingMissiles: []
   hasUI: 0
   ui: {fileID: 0}
   markerUI: {fileID: 0}
@@ -29683,11 +29903,13 @@ MonoBehaviour:
   yawSensitivity: 0.5
   yawSpeed: 10
   player: {fileID: 0}
+  displayName: Ship
   energyMax: 100
   energyCurrent: 100
   energyRechargeRate: 10
   fuelMax: 100
   fuelCurrent: 100
+  mountedSystem: {fileID: 0}
   trail: {fileID: 0}
   trailSpeed: 1
   mainCamera: {fileID: 0}
@@ -30105,6 +30327,7 @@ MonoBehaviour:
   hpMax: 10
   hpCurrent: 10
   speedCurrent: 0
+  lockingMissiles: []
   rotatorLeftRight: {fileID: 7246742451379283080}
   rotatorUpDown: {fileID: 7246742451829241418}
   scanner: {fileID: 7246742451871467202}
@@ -30935,6 +31158,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a04cc08277ac79847b71e4813b62c333, type: 3}
+--- !u!1001 &3037373263859214286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.282
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.545
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677547, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037373265433677549, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874,
+        type: 3}
+      propertyPath: m_Name
+      value: Flare
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4fd2f8eb7cf0d7546aac6cf084d1c874, type: 3}
 --- !u!23 &3040792371352830816
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33549,6 +33841,7 @@ MonoBehaviour:
   hpMax: 10
   hpCurrent: 10
   speedCurrent: 0
+  lockingMissiles: []
   hasUI: 0
   ui: {fileID: 0}
   markerUI: {fileID: 0}
@@ -33567,11 +33860,13 @@ MonoBehaviour:
   yawSensitivity: 0.3
   yawSpeed: 100
   player: {fileID: 0}
+  displayName: Ship
   energyMax: 100
   energyCurrent: 0
   energyRechargeRate: 20
   fuelMax: 100
   fuelCurrent: 0
+  mountedSystem: {fileID: 0}
   trail: {fileID: 8218066810573869476}
   trailSpeed: 1
   mainCamera: {fileID: 0}

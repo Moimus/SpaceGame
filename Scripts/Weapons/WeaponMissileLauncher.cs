@@ -44,6 +44,7 @@ public class WeaponMissileLauncher : Weapon
                         if (ship.selectedTargetPointer != -1)
                         {
                             missileComponent.target = target;
+                            target.GetComponent<Entity>().lockingMissiles.Add(missileComponent);
                         }
                         p.transform.position = bulletSpawner.transform.position;
                         p.transform.rotation = bulletSpawner.transform.rotation;
@@ -59,6 +60,7 @@ public class WeaponMissileLauncher : Weapon
                         missileComponent.owner = owner.gameObject.transform;
                         missileComponent.faction = owner.faction;
                         missileComponent.target = target;
+                        target.GetComponent<Entity>().lockingMissiles.Add(missileComponent);
                         p.transform.position = bulletSpawner.transform.position;
                         p.transform.rotation = bulletSpawner.transform.rotation;
                     }

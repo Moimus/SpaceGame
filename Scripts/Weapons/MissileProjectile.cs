@@ -47,9 +47,14 @@ public class MissileProjectile : Projectile
 
                 if (other.GetComponent<Entity>() != null)
                 {
+                    if (target != null && target.GetComponent<Entity>().lockingMissiles.Contains(this))
+                    {
+                        target.GetComponent<Entity>().lockingMissiles.Remove(this);
+                    }
+
                     if (faction == other.gameObject.GetComponent<Entity>().faction)
                     {
-                        Destroy(gameObject);
+                        onDestroy();
                         return;
                     }
                 }
@@ -67,7 +72,7 @@ public class MissileProjectile : Projectile
 
             trail.transform.parent = null;
             Destroy(trail.gameObject, 1f);
-            Destroy(gameObject);
+            onDestroy();
             return;
         }
     }

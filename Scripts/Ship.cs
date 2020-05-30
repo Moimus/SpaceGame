@@ -47,6 +47,7 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
     public float energyRechargeRate = 10.0f; //how much energy is recharged per second
     public float fuelMax = 100;
     public float fuelCurrent;
+    public ShipSystem mountedSystem = null;
 
     [Header("FX")]
     //FX
@@ -275,6 +276,14 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
     {
         GameObject scan = Instantiate(scanPrefab, transform.position, transform.rotation, transform);
         scan.GetComponent<Scan>().owner = this;
+    }
+
+    public void activateSystem()
+    {
+        if(mountedSystem != null)
+        {
+            mountedSystem.activate();
+        }
     }
 
     public void cleanScannedShips() //removes missing ships from scannedShips after they got destroyed

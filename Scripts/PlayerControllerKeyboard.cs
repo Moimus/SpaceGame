@@ -72,6 +72,11 @@ public class PlayerControllerKeyboard : MonoBehaviour
         {
             ship.nextTarget();
         }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            ship.activateSystem();
+        }
     }
 
     void checkMouseInput()

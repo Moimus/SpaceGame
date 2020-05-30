@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public int damage = 1;
     public int faction = 0;
     public float lifeTime = 2f;
+    protected float lifeTimeRemaining = 2f;
     protected Ship ownerShip;
 
     // Start is called before the first frame update
@@ -20,12 +21,13 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveForward();
+        lifeCycle();
     }
 
     //TODO
     protected virtual void init()
     {
+        lifeTimeRemaining = lifeTime;
         Destroy(gameObject, lifeTime);
         if (owner != null)
         {
@@ -35,6 +37,12 @@ public class Projectile : MonoBehaviour
                 speed += ownerShip.speedCurrent;
             }
         }
+    }
+
+    protected virtual void lifeCycle()
+    {
+        moveForward();
+        checkAlive();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,7 +56,7 @@ public class Projectile : MonoBehaviour
                 {
                     if(faction == other.gameObject.GetComponent<Entity>().faction)
                     {
-                        Destroy(gameObject);
+                        onDestroy();
                         return;
                     }
                 }
@@ -58,7 +66,7 @@ public class Projectile : MonoBehaviour
                     ownerShip.markerUI.spawnHitMarker();
                 }
             }
-            Destroy(gameObject);
+            onDestroy();
             return;
         }
     }
@@ -68,5 +76,20 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 
+    protected virtual void checkAlive()
+    {
+        if(lifeTimeRemaining > 0)
+        {
+            lifeTimeRemaining -= Time.deltaTime;
+        }
+        else
+        {
+            onDestroy();
+        }
+    }
 
+    protected virtual void onDestroy()
+    {
+        Destroy(gameObject);
+    }
 }
