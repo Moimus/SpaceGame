@@ -8,6 +8,8 @@ public class Weapon : MonoBehaviour
     public GameObject bulletSpawner;
     public GameObject projectile;
     public float energyConsumption = 5f;
+    public float cooldown = 0.5f;
+    float cooldownRemaining = 0f;
     public bool active = false;
 
     [Header("DataModel")]
@@ -22,7 +24,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        weaponLoop();
     }
 
     public virtual void init(Entity owner)
@@ -30,9 +32,17 @@ public class Weapon : MonoBehaviour
         this.owner = owner;
     }
 
+    void weaponLoop()
+    {
+        if(cooldownRemaining > 0)
+        {
+            cooldownRemaining -= Time.deltaTime;
+        }
+    }
+
     public virtual void fire()
     {
-        if(active)
+        if(active && cooldownRemaining <= 0)
         {
             Ship ship;
             ship = owner as Ship;
@@ -45,6 +55,7 @@ public class Weapon : MonoBehaviour
                     p.GetComponent<Projectile>().faction = owner.faction;
                     p.transform.position = bulletSpawner.transform.position;
                     p.transform.rotation = bulletSpawner.transform.rotation;
+                    cooldownRemaining = cooldown;
                     if (ship != null)
                     {
                         ship.energyCurrent -= energyConsumption;
@@ -57,6 +68,7 @@ public class Weapon : MonoBehaviour
                     p.GetComponent<Projectile>().faction = owner.faction;
                     p.transform.position = bulletSpawner.transform.position;
                     p.transform.rotation = bulletSpawner.transform.rotation;
+                    cooldownRemaining = cooldown;
                 }
             }
             else
@@ -64,6 +76,7 @@ public class Weapon : MonoBehaviour
                 GameObject p = Instantiate(projectile);
                 p.transform.position = bulletSpawner.transform.position;
                 p.transform.rotation = bulletSpawner.transform.rotation;
+                cooldownRemaining = cooldown;
             }
         }
     }

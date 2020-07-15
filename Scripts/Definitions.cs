@@ -9,6 +9,6 @@ public class Definitions
         neutral = 0,
         player1 = 1,
         player2 = 2,
-        genereicEnemy = 3
+        genericEnemy = 3
     }
 }
