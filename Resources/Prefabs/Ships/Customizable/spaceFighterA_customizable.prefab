@@ -6042,7 +6042,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7262113717437272856}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6061,7 +6061,7 @@ Transform:
   - {fileID: 1513361296163629691}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!54 &1723146812542021905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6108,6 +6108,7 @@ MonoBehaviour:
   hpMax: 10
   hpCurrent: 10
   speedCurrent: 0
+  lockingMissiles: []
   hasUI: 1
   ui: {fileID: 1723146812498391186}
   markerUI: {fileID: 1513361297352066581}
@@ -6126,11 +6127,13 @@ MonoBehaviour:
   yawSensitivity: 0.3
   yawSpeed: 100
   player: {fileID: 0}
+  displayName: Moico MC-3
   energyMax: 100
   energyCurrent: 0
   energyRechargeRate: 20
   fuelMax: 100
   fuelCurrent: 0
+  mountedSystem: {fileID: 0}
   trail: {fileID: 1723146811517426613}
   trailSpeed: 1
   mainCamera: {fileID: 0}

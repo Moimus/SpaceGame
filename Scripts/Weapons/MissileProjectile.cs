@@ -57,6 +57,7 @@ public class MissileProjectile : Projectile
                         onDestroy();
                         return;
                     }
+
                 }
                 other.GetComponent<IHitable>().onHit(damage);
                 if (ownerShip != null)

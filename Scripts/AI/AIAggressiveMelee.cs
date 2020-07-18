@@ -118,22 +118,6 @@ public class AIAggressiveMelee : MonoBehaviour, IAIPackage
             {
                 state = (int)states.engaging;
             }
-            /*if ((state == (int)states.firing || state == (int)states.evading) && d < evadeRange)
-            {
-                state = (int)states.evading;
-            }
-            else if(state == (int)states.evading && d < evadeRange * 30)
-            {
-                state = (int)states.fleeing;
-            }
-            else if(state == (int)states.engaging && state != (int)states.fleeing && d < attackRange)
-            {
-                state = (int)states.firing;
-            }
-            else if(state == (int)states.engaging || state == (int)states.fleeing)
-            {
-                state = (int)states.engaging;
-            }*/
 
         }
     }

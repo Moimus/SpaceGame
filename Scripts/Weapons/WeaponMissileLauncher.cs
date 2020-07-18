@@ -41,7 +41,7 @@ public class WeaponMissileLauncher : Weapon
                         MissileProjectile missileComponent = p.GetComponent<MissileProjectile>();
                         missileComponent.owner = ship.gameObject.transform;
                         missileComponent.faction = owner.faction;
-                        if (ship.selectedTargetPointer != -1)
+                        if (ship.selectedTargetPointer != -1 && target != null)
                         {
                             missileComponent.target = target;
                             target.GetComponent<Entity>().lockingMissiles.Add(missileComponent);

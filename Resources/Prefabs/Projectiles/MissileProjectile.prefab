@@ -235,11 +235,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5235263824562571495}
   - component: {fileID: 1989669180651220775}
-  - component: {fileID: 736771307738606770}
   - component: {fileID: 2591888647861803763}
+  - component: {fileID: 9018882626926576256}
   m_Layer: 0
   m_Name: MissileProjectile
-  m_TagString: Untagged
+  m_TagString: NoProjectileTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a13d18eb5a68446a37642ec0341e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 40
   owner: {fileID: 0}
   damage: 5
   faction: 0
@@ -284,19 +284,6 @@ MonoBehaviour:
   explosionFx: {fileID: 8438263367070403207, guid: 01b80a19eb24be646ad08e423cfda189,
     type: 3}
   aimTime: 8
---- !u!65 &736771307738606770
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5235263824562571497}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4, z: 0.65}
-  m_Center: {x: 0.0013253093, y: 0.0013254322, z: -0.033135176}
 --- !u!54 &2591888647861803763
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -313,6 +300,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &9018882626926576256
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235263824562571497}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7237756958907994899
 GameObject:
   m_ObjectHideFlags: 0

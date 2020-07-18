@@ -6313,7 +6313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: 1
+  faction: 0
   alive: 1
   hpMax: 10
   hpCurrent: 10
@@ -6567,6 +6567,11 @@ PrefabInstance:
       propertyPath: active
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 209790055445437685}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
 --- !u!4 &8328062564437895720 stripped
@@ -6659,6 +6664,11 @@ PrefabInstance:
       propertyPath: active
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+        type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 209790055445437685}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
 --- !u!4 &6971833375684172356 stripped

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public string deathMatchmap;
+    public string debugMap;
+    public string customizerMap;
 
     // Start is called before the first frame update
     void Start()
@@ -23,4 +25,16 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(deathMatchmap, LoadSceneMode.Single);
     }
+
+    public void loadDebug()
+    {
+        SceneManager.LoadScene(debugMap, LoadSceneMode.Single);
+    }
+
+    public void loadCustomizer()
+    {
+        SceneManager.LoadScene(customizerMap, LoadSceneMode.Single);
+    }
+
+
 }

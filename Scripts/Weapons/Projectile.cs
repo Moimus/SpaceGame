@@ -61,7 +61,7 @@ public class Projectile : MonoBehaviour
                     }
                 }
                 other.GetComponent<IHitable>().onHit(damage);
-                if (ownerShip != null)
+                if (ownerShip != null && ownerShip.markerUI != null)
                 {
                     ownerShip.markerUI.spawnHitMarker();
                 }

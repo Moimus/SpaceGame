@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //TODO load shipBlueprint instead of prefab
     public IEnumerator respawnCounter()
     {
         Debug.Log("respawn!");
