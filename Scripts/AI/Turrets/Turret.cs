@@ -40,13 +40,21 @@ public class Turret : Entity, IHitable, IDestructable
             calcTargetOffset();
         }
         
-        if (remainingFireCooldown > 0)
+        /*if (remainingFireCooldown > 0)
         {
             remainingFireCooldown -= Time.deltaTime;
         }
         else if(remainingFireCooldown <= 0 && target != null)
         {
             fireWeapons();
+        }*/
+        if(target != null)
+        {
+            fireWeapons();
+        }
+        else
+        {
+            releaseWeapons();
         }
     }
 
@@ -123,8 +131,22 @@ public class Turret : Entity, IHitable, IDestructable
         {
             w.fire();
         }
-        remainingFireCooldown = fireCooldown;
+        //remainingFireCooldown = fireCooldown;
 
+    }
+
+    /// <summary>
+    /// AI function to emulate a release of the fireButton
+    /// </summary>
+    public void releaseWeapons()
+    {
+        if (weapons != null && weapons.Length > 0)
+        {
+            foreach (Weapon w in weapons)
+            {
+                w.releaseFire();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)

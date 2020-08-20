@@ -70,10 +70,11 @@ public class AIAggressiveMelee : MonoBehaviour, IAIPackage
         else if (state == (int)states.evading)
         {
             controller.ship.yawUp(controller.ship.yawSpeed * 0.04f);
-            if(controller.ship.speedCurrent > halfSpeed)
+            if (controller.ship.speedCurrent > halfSpeed)
             {
                 controller.ship.slowDown();
             }
+            controller.ship.releaseWeapons();
             controller.ship.rollLeft();
         }
         else if (state == (int)states.fleeing)

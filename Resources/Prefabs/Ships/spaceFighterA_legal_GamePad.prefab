@@ -6248,11 +6248,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa15b9a67f657043bead7a0fe09c411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: 2
+  faction: 0
   alive: 1
   hpMax: 10
   hpCurrent: 10
+  isPlayer: 1
   speedCurrent: 0
+  lockingMissiles: []
   hasUI: 1
   ui: {fileID: 1851133314224979938}
   markerUI: {fileID: 5580653640847304077}
@@ -6273,11 +6275,13 @@ MonoBehaviour:
   yawSensitivity: 0.3
   yawSpeed: 100
   player: {fileID: 0}
+  displayName: Ship
   energyMax: 100
   energyCurrent: 0
   energyRechargeRate: 20
   fuelMax: 100
   fuelCurrent: 0
+  mountedSystem: {fileID: 0}
   trail: {fileID: 1851133316140393757}
   trailSpeed: 1
   mainCamera: {fileID: 1851133314497960620}

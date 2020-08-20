@@ -6317,13 +6317,14 @@ MonoBehaviour:
   alive: 1
   hpMax: 10
   hpCurrent: 10
+  isPlayer: 1
   speedCurrent: 0
   lockingMissiles: []
   hasUI: 1
   ui: {fileID: 209790055567711605}
   markerUI: {fileID: 741043186}
   weapons:
-  - {fileID: 651010704199942062}
+  - {fileID: 0}
   - {fileID: 1899128754362568642}
   weaponMounts:
   - {fileID: 7124185279211467841}
@@ -6580,18 +6581,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8053754522925206852}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &651010704199942062 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 8053754522925206852}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 469dad4f5603fd442b86d727f8a4b80e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8977778876628712744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6671,12 +6660,6 @@ PrefabInstance:
       objectReference: {fileID: 209790055445437685}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
---- !u!4 &6971833375684172356 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 8977778876628712744}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1899128754362568642 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd,
@@ -6689,3 +6672,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469dad4f5603fd442b86d727f8a4b80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6971833375684172356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2042267902013056876, guid: 2ef4b88b0925cde47a3fb22167e815fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 8977778876628712744}
+  m_PrefabAsset: {fileID: 0}

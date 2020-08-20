@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public GameObject projectile;
     public float energyConsumption = 5f;
     public float cooldown = 0.5f;
-    float cooldownRemaining = 0f;
+    protected float cooldownRemaining = 0f;
     public bool active = false;
 
     [Header("DataModel")]
@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
         this.owner = owner;
     }
 
-    void weaponLoop()
+    protected void weaponLoop()
     {
         if(cooldownRemaining > 0)
         {
@@ -81,6 +81,15 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// AI function, called by Ship, emulates a firebutton release,
+    /// override in childs if needed
+    /// </summary>
+    public virtual void releaseFire()
+    {
+
+    }
+
     public virtual void detachWeapon()
     {
         Ship ship = owner as Ship;
@@ -93,6 +102,8 @@ public class Weapon : MonoBehaviour
         Ship ship = owner as Ship;
         ship.weapons.Add(this);
     }
+
+
 
 
 }

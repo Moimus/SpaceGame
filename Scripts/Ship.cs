@@ -272,6 +272,20 @@ public class Ship : Entity, IHitable, IDestructable, IExportable
         }
     }
     
+    /// <summary>
+    /// AI function to emulate a release of the fireButton
+    /// </summary>
+    public void releaseWeapons()
+    {
+        if(weapons != null && weapons.Count > 0)
+        {
+            foreach (Weapon w in weapons)
+            {
+                w.releaseFire();
+            }
+        }
+    }
+
     public void scan()
     {
         GameObject scan = Instantiate(scanPrefab, transform.position, transform.rotation, transform);

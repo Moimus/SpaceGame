@@ -1472,6 +1472,7 @@ MonoBehaviour:
   weaponPrefabs:
   - {fileID: 7407425058495754986, guid: 2ef4b88b0925cde47a3fb22167e815fd, type: 3}
   - {fileID: 6403607314539309612, guid: 6ccd37457ff6010459a66c64e9ed31dd, type: 3}
+  - {fileID: 5837264078623986565, guid: c8107723d5602c3489b95cf8ea30426d, type: 3}
   shipPrefabs:
   - {fileID: 7262113717437272856, guid: 3076bacad180cc344bbcde323112f1a5, type: 3}
   - {fileID: 5644218461886526456, guid: df91d61eda4ed8444a776140f0ba14a1, type: 3}

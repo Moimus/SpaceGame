@@ -49,6 +49,8 @@ MonoBehaviour:
   speed: 30
   owner: {fileID: 0}
   damage: 1
+  faction: 0
+  lifeTime: 2
 --- !u!65 &3996295357583265289
 BoxCollider:
   m_ObjectHideFlags: 0

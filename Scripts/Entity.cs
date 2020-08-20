@@ -9,6 +9,7 @@ public class Entity : MonoBehaviour
     public bool alive = true;
     public int hpMax = 10;
     public int hpCurrent;
+    public bool isPlayer = false;
 
     [Header("ControlVariables : Entitiy")]
     public float speedCurrent = 0f;

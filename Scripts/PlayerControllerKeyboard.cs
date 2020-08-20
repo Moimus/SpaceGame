@@ -81,7 +81,7 @@ public class PlayerControllerKeyboard : MonoBehaviour
 
     void checkMouseInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             ship.fireWeapons();
         }
