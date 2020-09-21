@@ -9,3 +9,8 @@ https://www.youtube.com/playlist?list=PLCBwfFeT1ObksIy-0vnNIFmXhJwDSdHis
 # Please Note
 This are only the asset files! To import the project in Unity you also need the project files.</br>
 Feel free to leave a comment in case you want to contribute.
+
+# Videos
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
+" target="_blank"><img src="http://img.youtube.com/vi/mM_Tr-fhpWw/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
